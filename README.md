@@ -14,7 +14,7 @@
 ### `⚒️ Tools ⚒️`
 
 * HTML, CSS and JavaScript;
-* PHP (just in the Quiz Page);
+* PHP 7 and Xamp (just in the Quiz Page);
 * Any browser (tested correctly in Google Chrome, Opera and Opera GX).
 
 ----
