@@ -1,0 +1,130 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    
+    <meta charset="utf-8" />
+        <meta name="description" contet="Venha aprender sobre a reciclagem de maneira fácil e divertida. Disponibilizamos blogs e projetos (javascript e download docx) diversos. Toda semana um conteúdo novo." />
+        <meta name="author" content="Gabriel Felix dos Santos, Matheus Gustavo de Oliveira Santos e Matheus Augusto Lisboa Maruca" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+    <title>CONSCIÊNCIA DA NATUREZA</title>
+        
+    <link href="CSS/boilerplate.css" rel="stylesheet" type="text/css" /> <!-- CSS para responsividade -->
+    <link href="CSS/style-global.css" rel="stylesheet" type="text/css" /> <!-- CSS global -->
+    <link rel="stylesheet" type="text/css" href="CSS/style-navegação-vertical.css"> <!-- CSS específico da divisória "Navegação_Vertical" -->
+
+    <style>
+      /* Layout para celular: até 480px*/
+      #legenda_um {
+        margin-top: 2%;
+      }
+
+      #legenda_dois {
+        margin-top: 2%;
+        margin-left: 5%;
+      }
+
+      /* Layout para tablet: 481px até 768px*/
+      @media only screen and (min-width: 481px) {
+        #legenda_um {
+          margin-top: 2%;
+          margin-left: 5%;
+        }
+
+        #legenda_dois {
+          margin-top: 2%;
+          margin-left: 5%;
+        }
+      }
+
+      /* Layout para computador: 769px ou mais*/
+      @media only screen and (min-width: 769px) {
+        #legenda_um {
+          margin-top: 2%;
+          margin-left: 3%;
+        }
+
+        #legenda_dois {
+          margin-top: 2%;
+          margin-left: 27%;
+        }
+      }
+    </style>
+    
+    <script src="JAVA/respond.min.js"></script> <!-- JAVA para responsividade -->
+  
+        
+  </head>
+
+  <body>
+
+    <div class="gridContainer clearfix"> <!-- → DIVISÓRIA RESPONSIVA 1 -->
+        <div id="LayoutDiv1"> <!-- → DIVISÓRIA RESPONSIVA 2 -->
+            
+              <div id="Nome_do_Website"> <!-- → APRESENTAÇÃO -->
+                  <h1>Consciência da Natureza</h1>
+                    <h5><em>"Seus atos de hoje serão seu futuro de amanhã"</em></h5>
+                    
+                     <ul id="Menu">
+                        <li><a href="index.html">INÍCIO</a></li> <!-- A id "Está_Aqui" serve para identificar a página que está aberta. No css "style-global", a cor desse item é diferente dos demais, assim, o usuário saberá em qual página ele está. -->
+                        <li><a href="blogs.html" id="Está_Aqui">BLOGS</a></li>
+                        <li><a href="projetos.html">PROJETOS</a></li>
+                        <li><a href="sugestoes.html">SUGESTÕES</a></li>
+                        <li><a href="contato.html">CONTATO</a></li>
+                   </ul>
+                    
+                </div> <!-- APRESENTAÇÃO ← -->
+
+                <div id="Navegação_Vertical"> <!-- → Navegação Vertical -->
+                  <p>Veja também</p> <br /> 
+                  <p id="subir">Blogs:</p>
+                  <ul>
+                    <li><a href="blogs_Reciclagem-Introdução.html">Reciclagem: Introdução</a></li> <br />
+                    <li><a href="blogs_Mega-Winner.html">Mega Winner</a></li> <br />
+                    <li><a href="blogs_Tabela-de-Decomposição.html">Tabela de decomposição</a></li> <br />
+                    <li><a href="blogs_Reciclar-para-o-quê.html">Reciclar: para que?</a></li> <br />
+                    <li><a href="blogs_Descarte-de-embalagens-agrotóxicas-em-Mirandópolis.html" id="Está_Aqui">Descarte de embalagens agrotóxicas em Mirandópolis</a></li> <br />
+                  </ul>
+                  <p>Projetos:</p>
+                  <ul>
+                      <li><a href="projetos_Colete-os-Lixos.html">Colete os lixos</a></li> <br />
+                      <li><a href="projetos_Conheça-as-lixeiras-recicláveis.html">Conheça as lixeiras recicláveis</a></li> <br />
+                      <li><a href="projetos_Introdução-Quiz.html">Quiz</a></li> <br />
+                  </ul>
+                </div> <!-- Navegação Vertical ← -->
+
+                <div id="Conteúdo"> <!-- → CONTEÚDO -->
+                  <br /> <br />
+                    <hr width="100%" />
+                    <br />
+                
+                  <h3>Descarte de embalagens agrotóxicas em Mirandópolis</h3>
+                    <a href="blogs.html"><img id="Retornar" src="Imagens\Layout\Retornar.png" width="3%" /></a>
+                    <br /> <br />
+
+                    <p>O município de Mirandópolis detém de várias áreas destinadas a serviços agropecuários (como granjas e monoculturas de cana-de-açúcar), algo ótimo à economia da pequena cidade. Contudo, um grande problema vinha sendo enfrentado pela prefeitura municipal tempos atrás: o descarte equivocado de embalagens agrotóxicas no meio ambiente.</p>
+                    <p>Como o próprio nome diz, embalagens agrotóxicas possuem substâncias nocivas de intoxicação aos seres vivos (tanto animais quanto plantas), além de serem as principais responsáveis pela contaminação do solo e de bacias hidrográficas próximas, proporcionando, assim, um prejuízo gigantesco à proprietários rurais e riscos à vida dos cidadãos mirandopolenses.</p>
+                    <img src="Imagens\Blogs\Embalagens_agrotóxicas.jpg" width="50%" height="300px" />
+                    <legend id="legenda_um">Embalagens agrotóxicas. Suas substâncias são extremamente nocivas ao ser humano, podendo, até mesmo, causar riscos à vida</legend>
+                    <p>A fim de evitar tais consequências de longo prazo, a prefeitura mucipal, em parceria com a empresa CORPLAST, providenciou um posto de recebimento de embalagens agrotóxicas na estrada Mirandópolis-Lavínia, no quilômetro 3,5. Nesse espaço, as embalagens coletadas são armazenadas até que haja um bom estoque; depois, são destinadas à central de recebimento (Bilac/SP) onde serão recicladas.</p>
+                    <img src="Imagens\Layout\Galpão.jpg" width="50%" height="300px" /> 
+                    <legend id="legenda_dois">Posto de recebimento de embalagens agrotóxicas de Mirandópolis</legend>
+                    <br /> <br />
+                    <p>Para mais informações, acesse a página oficial da notíca em: <a href="https://www.mirandopolis.sp.gov.br/noticias/meio-ambiente/mirandopolis-obtem-licenca-da-cetesb-para-receber-embalagens-agrotoxicas/" target="_blank">Mirandópolis obtém licença da Cetesb para receber embalagens agrotóxicas</a>.</p>
+
+                    <br /> <br />
+                    <hr width="100%" />
+                    <br />
+                </div> <!-- CONTEÚDO ← -->
+                
+                <div id="Créditos">COPYRIGHT<sup>&copy</sup> 2018 -- UNIP / ARAÇATUBA</div> <!-- CRÉDITOS -->
+          
+        </div> <!-- DIVISÓRIA RESPONSIVA 2 ← -->
+            
+    </div> <!-- DIVISÓRIA RESPONSIVA 1 ← -->
+        
+  </body>
+    
+</html>

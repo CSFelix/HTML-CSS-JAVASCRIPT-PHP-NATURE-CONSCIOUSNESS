@@ -1,0 +1,303 @@
+@charset "utf-8";
+
+img, object, embed, video {
+	max-width: 100%;
+}
+
+.ie6 img {
+	width:100%;
+}
+
+/* Layout para celular: até 480px. */
+	
+	#Conteúdo h3 {
+		margin-left: 40%;
+		width: 48%;
+	} /* O "h3" (títulos) encontram-se a 40% de distância da margem esquerda e possuem 20% de comprimento.*/
+	
+	#Conteúdo #Tabela_de_Decomposição {
+		background-color: white;
+		-webkit-animation: Surgir 2s linear;
+		-moz-animation: Surgir 2s linear;
+		animation: Surgir 2s linear;
+	} 
+	
+	/* → As animações a seguir modificam a opacidade da tabela de 0 para 1.*/
+	
+	@-webkit-keyframes Surgir {
+		from{opacity: 0;}
+		to{opacity: 1;}
+	} /* Google Chrome, Safari e Opera.*/
+	
+	@-moz-keyframes Surgir {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Mozila Firefox.*/
+	
+	@keyframes Surgir {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações ← .*/
+	
+	/* As linhas da tabela são preenchidas de três em três por cores diferentes. Cada cor corresponde a uma das dez lixeiras recicláveis (com exceção da atribuída ao pneu).*/
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Plástico {
+		background-color: red;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Papel {
+		background-color: blue;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Metal {
+		background-color: yellow;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Vidro {
+		background-color: green;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Orgânico {
+		background-color: brown;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Radioativo {
+		background-color: purple;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Hospitalar {
+		background-color: white;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Não_reciclável {
+		background-color: gray;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Perigosos {
+		background-color: orange;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Madeira {
+		background-color: black;
+		color: white;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Pneu {
+		background-color: aquamarine;
+	}
+	
+	/* Fim das cores ← .*/
+	
+	#Conteúdo #Curiosidades {
+		font-size: 12pt;
+	} /* A fonte das letras pertencentes à lista não ordenada da página é de 12 pontos.*/
+	
+	#Conteúdo #Curiosidades img {
+		margin-left: 35%;
+	} 
+
+	#Conteúdo button {
+		width: 35%;
+		margin-left:35%;
+	}
+
+/* Layout para tablet: 481px a 768px. Seu estilo é herdado do do celular. */
+
+@media only screen and (min-width: 481px) {
+	
+	#Conteúdo h3 {
+		margin-left: 40%;
+		width: 45%;
+	} /* O "h3" (título) encontram-se a 40% de distância da margem esquerda e possuem 20% de comprimento.*/
+	
+	#Conteúdo #Tabela_de_Decomposição {
+		background-color: white;
+		-webkit-animation: Surgir 2s linear;
+		-moz-animation: Surgir 2s linear;
+		animation: Surgir 2s linear;
+	} 
+	
+	/* → As animações a seguir modificam a opacidade da tabela de 0 para 1.*/
+	
+	@-webkit-keyframes Surgir {
+		from{opacity: 0;}
+		to{opacity: 1;}
+	} /* Google Chrome, Safari e Opera.*/
+	
+	@-moz-keyframes Surgir {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Mozila Firefox.*/
+	
+	@keyframes Surgir {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações ← .*/
+	
+	/* As linhas da tabela são preenchidas de três em três por cores diferentes. Cada cor corresponde a uma das dez lixeiras recicláveis (com exceção da atribuída ao pneu).*/
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Plástico {
+		background-color: red;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Papel {
+		background-color: blue;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Metal {
+		background-color: yellow;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Vidro {
+		background-color: green;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Orgânico {
+		background-color: brown;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Radioativo {
+		background-color: purple;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Hospitalar {
+		background-color: white;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Não_reciclável {
+		background-color: gray;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Perigosos {
+		background-color: orange;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Madeira {
+		background-color: black;
+		color: white;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Pneu {
+		background-color: aquamarine;
+	}
+	
+	/* Fim das cores ← .*/
+	
+	#Conteúdo #Curiosidades {
+		font-size: 12pt;
+	} /* A fonte das letras pertencentes à lista não ordenada da página é de 12 pontos.*/
+	
+	#Conteúdo #Curiosidades img {
+		margin-left: 35%;
+	} 
+
+	#Conteúdo button {
+		width: 35%;
+		margin-left: 35%;
+	}
+
+} /* Funciona somente em telas de, no mínimo, 481px.*/
+
+/* Layout para computador: 769px até 1232px. Seu estilo é herdado do do tablet e do celular. */
+
+@media only screen and (min-width: 769px) {
+	
+	#Conteúdo h3 {
+		margin-left: 40%;
+		width: 27%;
+	} /* O "h3" (título) encontram-se a 40% de distância da margem esquerda e possuem 20% de comprimento.*/
+	
+	#Conteúdo #Tabela_de_Decomposição {
+		background-color: white;
+		-webkit-animation: Surgir 2s linear;
+		-moz-animation: Surgir 2s linear;
+		animation: Surgir 2s linear;
+	} 
+
+	/* → As animações a seguir modificam a opacidade da tabela de 0 para 1.*/
+	
+	@-webkit-keyframes Surgir {
+		from{opacity: 0;}
+		to{opacity: 1;}
+	} /* Google Chrome, Safari e Opera.*/
+	
+	@-moz-keyframes Surgir {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Mozila Firefox.*/
+	
+	@keyframes Surgir {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações ← .*/
+	
+	/* As linhas da tabela são preenchidas de três em três por cores diferentes. Cada cor corresponde a uma das dez lixeiras recicláveis (com exceção da atribuída ao pneu).*/
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Plástico {
+		background-color: red;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Papel {
+		background-color: blue;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Metal {
+		background-color: yellow;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Vidro {
+		background-color: green;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Orgânico {
+		background-color: brown;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Radioativo {
+		background-color: purple;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Hospitalar {
+		background-color: white;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Não_reciclável {
+		background-color: gray;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Perigosos {
+		background-color: orange;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Madeira {
+		background-color: black;
+		color: white;
+	}
+	
+	#Conteúdo #Tabela_de_Decomposição tr .Pneu {
+		background-color: aquamarine;
+	}
+	
+	/* Fim das cores ← .*/
+	
+	#Conteúdo #Curiosidades {
+		font-size: 12pt;
+		width: 90%;
+		margin-left: 2%;
+	} /* A fonte das letras pertencentes à lista não ordenada da página é de 12 pontos.*/
+	
+	#Conteúdo #Curiosidades img {
+		margin-left: 35%;
+	} 
+
+	#Conteúdo button {
+		width: 14%;
+		margin-left: 41%;
+	}
+} /* Funciona somente em telas de, no mínimo, 769px.*/

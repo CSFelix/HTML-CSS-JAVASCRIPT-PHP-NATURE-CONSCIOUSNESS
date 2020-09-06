@@ -1,0 +1,102 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    
+    <meta charset="utf-8" />
+        <meta name="description" contet="Venha aprender sobre a reciclagem de maneira fácil e divertida. Disponibilizamos blogs e projetos (javascript e download docx) diversos. Toda semana um conteúdo novo." />
+        <meta name="author" content="Gabriel Felix dos Santos, Matheus Gustavo de Oliveira Santos e Matheus Augusto Lisboa Maruca" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+    <title>CONSCIÊNCIA DA NATUREZA</title>
+        
+    <link href="CSS/boilerplate.css" rel="stylesheet" type="text/css" /> <!-- CSS para responsividade -->
+    <link href="CSS/style-global.css" rel="stylesheet" type="text/css" /> <!-- CSS global -->
+        <link rel="stylesheet" type="text/css" href="CSS/style-navegação-vertical.css"> <!-- CSS específico da divisória "Navegação_Vertical" -->
+    
+    <script src="JAVA/respond.min.js"></script> <!-- JAVA para responsividade -->
+    <script type="text/javascript">
+    
+        function sorteio_de_página(número_aleatório) {
+            switch(número_aleatório) {
+                case 0: 
+                    window.open("projetos_Quiz-Formulário-um.html");
+                    break;
+                    
+                case 1:
+                    window.open("projetos_Quiz-Formulário-dois.html");
+                    break;
+            }
+        }
+        
+    </script>
+        
+  </head>
+
+  <body>
+
+    <div class="gridContainer clearfix"> <!-- → DIVISÓRIA RESPONSIVA 1 -->
+        <div id="LayoutDiv1"> <!-- → DIVISÓRIA RESPONSIVA 2 -->
+            
+              <div id="Nome_do_Website"> <!-- → APRESENTAÇÃO -->
+                  <h1>Consciência da Natureza</h1>
+                    <h5><em>"Seus atos de hoje serão seu futuro de amanhã"</em></h5>
+                    
+                     <ul id="Menu">
+                        <li><a href="index.html">INÍCIO</a></li> <!-- A id "Está_Aqui" serve para identificar a página que está aberta. No css "style-global", a cor desse item é diferente dos demais, assim, o usuário saberá em qual página ele está. -->
+                        <li><a href="blogs.html">BLOGS</a></li>
+                        <li><a href="projetos.html" id="Está_Aqui">PROJETOS</a></li>
+                        <li><a href="sugestoes.html">SUGESTÕES</a></li>
+                        <li><a href="contato.html">CONTATO</a></li>
+                   </ul>
+                    
+                </div> <!-- APRESENTAÇÃO ← -->
+
+                <div id="Navegação_Vertical"> <!-- → Navegação Vertical -->
+                  <p>Veja também</p> <br /> 
+                  <p id="subir">Blogs:</p>
+                  <ul>
+                    <li><a href="blogs_Reciclagem-Introdução.html">Reciclagem: Introdução</a></li> <br />
+                    <li><a href="blogs_Mega-Winner.html">Mega Winner</a></li> <br />
+                    <li><a href="blogs_Tabela-de-Decomposição.html">Tabela de decomposição</a></li> <br />
+                    <li><a href="blogs_Reciclar-para-o-quê.html">Reciclar: para que?</a></li> <br />
+                     <li><a href="blogs_Descarte-de-embalagens-agrotóxicas-em-Mirandópolis.html">Descarte de embalagens agrotóxicas em Mirandópolis</a></li> <br />
+                  </ul>
+                  <p>Projetos:</p>
+                  <ul>
+                      <li><a href="projetos_Colete-os-Lixos.html">Colete os lixos</a></li> <br />
+                      <li><a href="projetos_Conheça-as-lixeiras-recicláveis.html">Conheça as lixeiras recicláveis</a></li> <br />
+                      <li><a href="projetos_Introdução-Quiz.html" id="Está_Aqui">Quiz</a></li> <br />
+                  </ul>
+                </div> <!-- Navegação Vertical ← -->
+
+                <div id="Conteúdo"> <!-- → CONTEÚDO -->
+                  <br /> <br />
+                    <hr width="100%" />
+                    <br />
+                
+                  <h3>QUIZ</h3>
+                    <a href="projetos.html"><img id="Retornar" src="Imagens\Layout\Retornar.png" width="3%" /></a>
+                    <br /> <br />
+
+                    <p>Que tal testar seus conhecimentos sobre a reciclagem?</p>
+                    <img src="Imagens\Layout\Quiz.png" width="50%" height="250px" />
+                    <p>Disponibilizamos um formulário contendo cinco perguntas básicas sobre o tema. Para respondê-lo, clique no botão abaixo.</p>
+
+                    <button onclick="sorteio_de_página(Math.floor(Math.random() * 2))">INICIAR!</button>
+
+                    <br /> <br />
+                    <hr width="100%" />
+                    <br />
+                </div> <!-- CONTEÚDO ← -->
+                
+                <div id="Créditos">COPYRIGHT<sup>&copy</sup> 2018 -- UNIP / ARAÇATUBA</div> <!-- CRÉDITOS -->
+          
+        </div> <!-- DIVISÓRIA RESPONSIVA 2 ← -->
+            
+    </div> <!-- DIVISÓRIA RESPONSIVA 1 ← -->
+        
+  </body>
+    
+</html>

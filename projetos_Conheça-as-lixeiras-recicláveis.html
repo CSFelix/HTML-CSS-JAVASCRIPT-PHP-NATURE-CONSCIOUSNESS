@@ -1,0 +1,798 @@
+<!doctype html>
+
+<html>
+
+	<head>
+    
+		<meta charset="utf-8" />
+        <meta name="description" contet="Venha aprender sobre a reciclagem de maneira fácil e divertida. Disponibilizamos blogs e projetos (javascript e download docx) diversos. Toda semana um conteúdo novo." />
+        <meta name="author" content="Gabriel Felix dos Santos, Matheus Gustavo de Oliveira Santos e Matheus Augusto Lisboa Maruca" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+		<title>CONSCIÊNCIA DA NATUREZA</title>
+        
+		<link href="CSS/boilerplate.css" rel="stylesheet" type="text/css" /> <!-- CSS para responsividade -->
+		<link href="CSS/style-global.css" rel="stylesheet" type="text/css" /> <!-- CSS global -->
+        <link rel="stylesheet" type="text/css" href="CSS/style-navegação-vertical.css"> <!-- CSS específico da divisória "Navegação_Vertical" -->
+      
+		<script src="JAVA/respond.min.js"></script> <!-- JAVA para responsividade -->
+      
+      	<style>
+		
+			
+			canvas {
+				margin-top: 0%;
+				bottom: 0%;
+				margin-left: 12.5%;
+				right: 0%;
+			} /* Posicionamento do canvas no centro da página.*/
+
+            canvas {
+                width: 75%;
+            } /* Definição do comprimento da canvas.*/
+			
+		</style>
+        
+	</head>
+
+	<body>
+
+		<div class="gridContainer clearfix"> <!-- → DIVISÓRIA RESPONSIVA 1 -->
+  			<div id="LayoutDiv1"> <!-- → DIVISÓRIA RESPONSIVA 2 -->
+            
+            	<div id="Nome_do_Website"> <!-- → APRESENTAÇÃO -->
+                	<h1>Consciência da Natureza</h1>
+                    <h5><em>"Seus atos de hoje serão seu futuro de amanhã"</em></h5>
+
+                   <ul id="Menu">
+                        <li><a href="index.html" >INÍCIO</a></li> <!-- A id "Está_Aqui" serve para identificar a página que está aberta. No css "style-global", a cor desse item é diferente dos demais, assim, o usuário saberá em qual página ele está. -->
+                        <li><a href="blogs.html">BLOGS</a></li>
+                        <li><a href="projetos.html" id="Está_Aqui">PROJETOS</a></li>
+                        <li><a href="sugestoes.html">SUGESTÕES</a></li>
+                        <li><a href="contato.html">CONTATO</a></li>
+                   </ul>
+
+                    
+                </div> <!-- APRESENTAÇÃO ← -->
+
+                <div id="Navegação_Vertical"> <!-- → Navegação Vertical -->
+                  <p>Veja também</p> <br /> 
+                  <p id="subir">Blogs:</p>
+                  <ul>
+                    <li><a href="blogs_Reciclagem-Introdução.html">Reciclagem: Introdução</a></li> <br />
+                    <li><a href="blogs_Mega-Winner.html">Mega Winner</a></li> <br />
+                    <li><a href="blogs_Tabela-de-Decomposição.html">Tabela de decomposição</a></li> <br />
+                    <li><a href="blogs_Reciclar-para-o-quê.html">Reciclar: para que?</a></li> <br />
+                     <li><a href="blogs_Descarte-de-embalagens-agrotóxicas-em-Mirandópolis.html">Descarte de embalagens agrotóxicas em Mirandópolis</a></li> <br />
+                  </ul>
+                  <p>Projetos:</p>
+                  <ul>
+                      <li><a href="projetos_Colete-os-Lixos.html">Colete os lixos</a></li> <br />
+                      <li><a href="projetos_Conheça-as-lixeiras-recicláveis.html" id="Está_Aqui">Conheça as lixeiras recicláveis</a></li> <br />
+                      <li><a href="projetos_Introdução-Quiz.html">Quiz</a></li> <br />
+                  </ul>
+                </div> <!-- Navegação Vertical ← -->
+
+
+                <div id="Conteúdo"> <!-- → CONTEÚDO -->
+                	<br /> <br />
+                    <hr width="100%" />
+                    <br />
+                
+               	  	<h3>CONHEÇA AS LIXEIRAS RECICLÁVEIS</h3>
+                    <a href="projetos.html"><img id="Retornar" src="Imagens\Layout\Retornar.png" width="3%" /></a>
+                    <br /> <br />
+                    <p> Basta clicar dentro do quadro abaixo! Com isso, informações sobre cada lixeira reciclável irão surgir!</p>
+                    <p> OBS.: caso seu navegador seja o Mozila Firefox, poderá haver alguns bugs em relação ao processamento da canvas, mas não se preocupe, estamos trabalhando para solucionar o problema.</p>
+                    <br />
+                    
+                    <canvas id="canvas">Aplicação não suportada pelo navegador. Por favor, atualize-o para sua versão mais recente.</canvas>
+		
+                    <script language="javascript" type="text/javascript"> // Tentei dar a melhor explicação possível, mas mesmo assim a interpretação do script parecer confusa, sinto muito ;(.
+					
+                    	// Variáveis 
+                        var canvas, contexto, ALTURA, LARGURA, frames, informações_lixeira = 0,
+
+                        lixeiras = {
+
+                            // Chaves da lixeira
+
+                            cor: ["blue", "red", "green", "yellow", "black", "white", "orange", "purple", "brown", "darkgray"],
+                            x: [50, 170, 290, 410],
+                            y_lixeira: [100, 250, 400],
+                            largura: [75, 113],
+                            altura_lixeira: 100,
+
+                            // Chaves da faixa
+
+                            y_faixa: [142, 292, 442],
+                            altura_faixa: 20,
+
+                            // Chaves do texto
+
+                            texto: ["PAPEL", "PLÁSTICO", "VIDRO", "METAL", "MADEIRA", "HOSPITAIS", "PERIGOSO", "RADIATIVO", "ORGÂNICO", "NÃO-RECICLÁVEL"],
+                            x_texto: [68, 174, 306, 426, 57, 170, 293, 410, 51, 168],
+                            y_texto: [160, 310, 460],
+
+                            // Métodos de desenho -- Primeira linha
+
+                            desenhar_Papel: function() {
+                                // Desenha a lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = this.cor[0];
+                                contexto.strokeRect(this.x[0], this.y_lixeira[0], this.largura[0], this.altura_lixeira);
+                                contexto.fillRect(this.x[0], this.y_lixeira[0], this.largura[0], this.altura_lixeira);
+                                contexto.closePath();
+
+                                // Desenha a faixa da lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = "white";
+                                contexto.strokeRect(this.x[0], this.y_faixa[0], this.largura[0], this.altura_faixa);
+                                contexto.fillRect(this.x[0], this.y_faixa[0], this.largura[0], this.altura_faixa);
+                                contexto.closePath();
+
+                                // Desenha o texto 
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.font = "18px fantasy"
+                                contexto.fillText(this.texto[0], this.x_texto[0], this.y_texto[0]);
+                                contexto.closePath();
+                            },
+
+                            desenhar_Plástico: function() {
+                                // Desenha a lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = this.cor[1];
+                                contexto.strokeRect(this.x[1], this.y_lixeira[0], this.largura[0], this.altura_lixeira);
+                                contexto.fillRect(this.x[1], this.y_lixeira[0], this.largura[0], this.altura_lixeira);
+                                contexto.closePath();
+
+                                // Desenha a faixa da lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = "white";
+                                contexto.strokeRect(this.x[1], this.y_faixa[0], this.largura[0], this.altura_faixa);
+                                contexto.fillRect(this.x[1], this.y_faixa[0], this.largura[0], this.altura_faixa);
+                                contexto.closePath();
+
+                                // Desenha o texto
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.fillText(this.texto[1], this.x_texto[1], this.y_texto[0]);
+                                contexto.closePath();
+                            },
+
+                            desenhar_Vidro: function() {
+                                // Desenha a lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = this.cor[2];
+                                contexto.strokeRect(this.x[2], this.y_lixeira[0], this.largura[0], this.altura_lixeira);
+                                contexto.fillRect(this.x[2], this.y_lixeira[0], this.largura[0], this.altura_lixeira);
+                                contexto.closePath();   
+
+                                // Desenha a faixa da lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = "white";
+                                contexto.strokeRect(this.x[2], this.y_faixa[0], this.largura[0], this.altura_faixa);
+                                contexto.fillRect(this.x[2], this.y_faixa[0], this.largura[0], this.altura_faixa);
+                                contexto.closePath();
+
+                                // Desenha o texto
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.fillText(this.texto[2], this.x_texto[2], this.y_texto[0]);
+                                contexto.closePath();
+                            },
+
+                            desenhar_Metal: function() {
+                                // Desenha a lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = this.cor[3];
+                                contexto.strokeRect(this.x[3], this.y_lixeira[0], this.largura[0], this.altura_lixeira);
+                                contexto.fillRect(this.x[3], this.y_lixeira[0], this.largura[0], this.altura_lixeira);
+                                contexto.closePath();   
+
+                                // Desenha a faixa da lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = "white";
+                                contexto.strokeRect(this.x[3], this.y_faixa[0], this.largura[0], this.altura_faixa);
+                                contexto.fillRect(this.x[3], this.y_faixa[0], this.largura[0], this.altura_faixa);
+                                contexto.closePath();
+
+                                // Desenha o texto
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.fillText(this.texto[3], this.x_texto[3], this.y_texto[0]);
+                                contexto.closePath();
+                            },
+
+                            // Métodos do desenho -- Segunda linha
+
+                            desenhar_Madeira: function() {
+                                // Desenha a lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = this.cor[4];
+                                contexto.strokeRect(this.x[0], this.y_lixeira[1], this.largura[0], this.altura_lixeira);
+                                contexto.fillRect(this.x[0], this.y_lixeira[1], this.largura[0], this.altura_lixeira);
+                                contexto.closePath();  
+
+                                // Desenha a faixa da lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = "white";
+                                contexto.strokeRect(this.x[0], this.y_faixa[1], this.largura[0], this.altura_faixa);
+                                contexto.fillRect(this.x[0], this.y_faixa[1], this.largura[0], this.altura_faixa);
+                                contexto.closePath(); 
+
+                                // Desenha o texto
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.fillText(this.texto[4], this.x_texto[4], this.y_texto[1]);
+                                contexto.closePath();
+                            },
+
+                            desenhar_Hospitalar: function() {
+                                // Desenha a lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = this.cor[5];
+                                contexto.strokeRect(this.x[1], this.y_lixeira[1], this.largura[0], this.altura_lixeira);
+                                contexto.fillRect(this.x[1], this.y_lixeira[1], this.largura[0], this.altura_lixeira);
+                                contexto.closePath();  
+
+                                // Desenha a faixa da lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = "white";
+                                contexto.strokeRect(this.x[1], this.y_faixa[1], this.largura[0], this.altura_faixa);
+                                contexto.fillRect(this.x[1], this.y_faixa[1], this.largura[0], this.altura_faixa);
+                                contexto.closePath(); 
+
+                                // Desenha o texto
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.fillText(this.texto[5], this.x_texto[5], this.y_texto[1]);
+                                contexto.closePath();
+                            },
+
+                            desenhar_Perigoso: function() {
+                                // Desenha a lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = this.cor[6];
+                                contexto.strokeRect(this.x[2], this.y_lixeira[1], this.largura[0], this.altura_lixeira);
+                                contexto.fillRect(this.x[2], this.y_lixeira[1], this.largura[0], this.altura_lixeira);
+                                contexto.closePath();  
+
+                                // Desenha a faixa da lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = "white";
+                                contexto.strokeRect(this.x[2], this.y_faixa[1], this.largura[0], this.altura_faixa);
+                                contexto.fillRect(this.x[2], this.y_faixa[1], this.largura[0], this.altura_faixa);
+                                contexto.closePath(); 
+
+                                // Desenha o texto
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.fillText(this.texto[6], this.x_texto[6], this.y_texto[1]);
+                                contexto.closePath();
+                            },
+
+                            desenhar_Radioativo: function() {
+                                // Desenha a lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = this.cor[7];
+                                contexto.strokeRect(this.x[3], this.y_lixeira[1], this.largura[0], this.altura_lixeira);
+                                contexto.fillRect(this.x[3], this.y_lixeira[1], this.largura[0], this.altura_lixeira);
+                                contexto.closePath();  
+
+                                // Desenha a faixa da lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = "white";
+                                contexto.strokeRect(this.x[3], this.y_faixa[1], this.largura[0], this.altura_faixa);
+                                contexto.fillRect(this.x[3], this.y_faixa[1], this.largura[0], this.altura_faixa);
+                                contexto.closePath(); 
+
+                                // Desenha o texto
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.fillText(this.texto[7], this.x_texto[7], this.y_texto[1]);
+                                contexto.closePath();
+                            },
+
+                            // Métodos do desenho -- Terceira linha
+
+                          desenhar_Orgânico: function() {
+                                // Desenha a lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = this.cor[8];
+                                contexto.strokeRect(this.x[0], this.y_lixeira[2], this.largura[0], this.altura_lixeira);
+                                contexto.fillRect(this.x[0], this.y_lixeira[2], this.largura[0], this.altura_lixeira);
+                                contexto.closePath();  
+
+                                // Desenha a faixa da lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = "white";
+                                contexto.strokeRect(this.x[0], this.y_faixa[2], this.largura[0], this.altura_faixa);
+                                contexto.fillRect(this.x[0], this.y_faixa[2], this.largura[0], this.altura_faixa);
+                                contexto.closePath(); 
+
+                                // Desenha o texto
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.fillText(this.texto[8], this.x_texto[8], this.y_texto[2]);
+                                contexto.closePath();
+                          },
+
+                          desenhar_Não_Reciclável: function() {
+                                // Desenha a lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = this.cor[9];
+                                contexto.strokeRect(this.x[1], this.y_lixeira[2], this.largura[1], this.altura_lixeira);
+                                contexto.fillRect(this.x[1], this.y_lixeira[2], this.largura[1], this.altura_lixeira);
+                                contexto.closePath();  
+
+                                // Desenha a faixa da lixeira
+                                contexto.beginPath();
+                                contexto.fillStyle = "white";
+                                contexto.strokeRect(this.x[1], this.y_faixa[2], this.largura[1], this.altura_faixa);
+                                contexto.fillRect(this.x[1], this.y_faixa[2], this.largura[1], this.altura_faixa);
+                                contexto.closePath(); 
+
+                                // Desenha o texto
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.fillText(this.texto[9], this.x_texto[9], this.y_texto[2]);
+                                contexto.closePath();
+                          },
+
+                          // Método de escolha da lixeira a ser desenhada
+
+                          número_da_lixeira: function(número) {
+                            switch(número) {
+                                case 0:
+                                    this.desenhar_Papel();
+                                    break;
+
+                                case 1:
+                                    this.desenhar_Plástico();
+                                    break;
+
+                                case 2:
+                                    this.desenhar_Vidro();
+                                    break;
+
+                                case 3: 
+                                    this.desenhar_Metal();
+                                    break;
+
+                                case 4: 
+                                    this.desenhar_Madeira();
+                                    break;
+
+                                case 5:
+                                    this.desenhar_Hospitalar();
+                                    break;
+
+                                case 6:
+                                    this.desenhar_Perigoso();
+                                    break;
+
+                                case 7:
+                                    this.desenhar_Radioativo();
+                                    break;
+
+                                case 8:
+                                    this.desenhar_Orgânico();
+                                    break;
+
+                                case 9: 
+                                    this.desenhar_Não_Reciclável();
+                                    break;
+                            } /* Para cada valor atribuído ao parâmetro "número", uma lixeira diferente é desenhada. */
+                          },
+                        },
+
+                        caixa_de_texto = {
+                            // Chaves da caixa de texto
+
+                            x: [98, 423],
+                            y: 98,
+                            largura: [354, 29],
+                            altura: [350, 25],
+
+                            // Chaves do texto presente na caixa
+
+                            x_texto: 433,
+                            y_texto: 115,
+                            cor_lixeira: ["AZUL", "VERMELHA", "VERDE", "AMARELA", "PRETA", "BRANCA", "LARANJA", "ROXA", "MARROM", "CINZA"],
+
+                            // Método de desenho 
+
+                            desenhar: function() {
+                                // Corpo da caixa
+                                contexto.beginPath();
+                                contexto.fillStyle = "white";
+                                contexto.strokeRect(this.x[0], this.y, this.largura[0], this.altura[0]);
+                                contexto.fillRect(this.x[0], this.y, this.largura[0], this.altura[0]);
+                                contexto.closePath();
+
+                                // Ícone de fechar
+                                    // Corpo do ícone
+                                    contexto.beginPath();
+                                    contexto.fillStyle = "red";
+                                    contexto.strokeRect(this.x[1], this.y, this.largura[1], this.altura[1]);
+                                    contexto.fillRect(this.x[1], this.y, this.largura[1], this.altura[1]);
+                                    contexto.closePath();
+
+                                    // Texto
+                                    contexto.beginPath();
+                                    contexto.fillStyle = "white";
+                                    contexto.strokeStyle = "white";
+                                    contexto.font = "15px fantasy";
+                                    contexto.fillText("X", this.x_texto, this.y_texto);
+                                    contexto.closePath();
+                            },
+
+                            // Métodos de informações -- Primeira linha
+
+                            informações_Papel: function() {
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.font = "18px fantasy";
+                                contexto.fillText("LIXEIRA: " + lixeiras.texto[0], 130, 170);
+                                contexto.fillText("COR: " + this.cor_lixeira[0], 130, 210);
+                                contexto.fillText("DESCRIÇÃO: NESTA LIXEIRA, LIXOS DE PAPEL", 130, 250);
+                                contexto.fillText("SÃO DESCARTADOS", 110, 290);
+                                contexto.fillText("EXEMPLOS: PAPELÃO, FOLHAS DE CADERNO E", 130, 330);
+                                contexto.fillText("GUARDANAPOS", 110, 370);
+                                contexto.closePath();
+                            },
+
+                            informações_Plástico: function() {
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.font = "18px fantasy";
+                                contexto.fillText("LIXEIRA: " + lixeiras.texto[1], 130, 170);
+                                contexto.fillText("COR: " + this.cor_lixeira[1], 130, 210);
+                                contexto.fillText("DESCRIÇÃO: NESTA LIXEIRA, LIXOS DE PLÁSTICO", 130, 250);
+                                contexto.fillText("SÃO DESCARTADOS", 110, 290);
+                                contexto.fillText("EXEMPLOS: GARRAFAS PET, EMBALAGENS E", 130, 330);
+                                contexto.fillText("SACOLAS PLÁSTICAS", 110, 370);
+                                contexto.closePath();
+                            },
+
+                            informações_Vidro: function() {
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.font = "18px fantasy";
+                                contexto.fillText("LIXEIRA: " + lixeiras.texto[2], 130, 170);
+                                contexto.fillText("COR: " + this.cor_lixeira[2], 130, 210);
+                                contexto.fillText("DESCRIÇÃO: NESTA LIXEIRA, LIXOS DE VIDRO", 130, 250);
+                                contexto.fillText("SÃO DESCARTADOS", 110, 290);
+                                contexto.fillText("EXEMPLOS: GARRAFAS DE VIDRO, JANELAS E", 130, 330);
+                                contexto.fillText("AQUÁRIOS", 110, 370);
+                                contexto.closePath();
+                            },
+
+                            informações_Metal: function() {
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.font = "18px fantasy";
+                                contexto.fillText("LIXEIRA: " + lixeiras.texto[3], 130, 170);
+                                contexto.fillText("COR: " + this.cor_lixeira[3], 130, 210);
+                                contexto.fillText("DESCRIÇÃO: NESTA LIXEIRA, LIXOS DE METAL", 130, 250);
+                                contexto.fillText("SÃO DESCARTADOS", 110, 290);
+                                contexto.fillText("EXEMPLOS: LATINHAS DE REFRIGERANTE, TAM - ", 130, 330);
+                                contexto.fillText("PINHAS, FIOS E OBJETOS DE COBRE", 110, 370);
+                                contexto.closePath();
+                            },
+
+                            // Métodos de informações -- Segunda linha
+
+                            informações_Madeira: function() {
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.font = "18px fantasy";
+                                contexto.fillText("LIXEIRA: " + lixeiras.texto[4], 130, 170);
+                                contexto.fillText("COR: " + this.cor_lixeira[4], 130, 210);
+                                contexto.fillText("DESCRIÇÃO: NESTA LIXEIRA, LIXOS DE MADEIRA", 130, 250);
+                                contexto.fillText("SÃO DESCARTADOS", 110, 290);
+                                contexto.fillText("EXEMPLOS: PALITOS DE PICOLÉ, CABOS DE VAS -", 130, 330);
+                                contexto.fillText("SOURAS E ALGUNS MODELOS DE PORTAS", 110, 370);
+                                contexto.closePath();
+                            },
+
+                            informações_Hospitalares: function() {
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.font = "18px fantasy";
+                                contexto.fillText("LIXEIRA: " + lixeiras.texto[5], 130, 170);
+                                contexto.fillText("COR: " + this.cor_lixeira[5], 130, 210);
+                                contexto.fillText("DESCRIÇÃO: NESTA LIXEIRA, LIXOS DE HOSPITAL", 130, 250);
+                                contexto.fillText("SÃO DESCARTADOS", 110, 290);
+                                contexto.fillText("EXEMPLOS: SERINGAS, LUVAS E FRASCOS DE", 130, 330);
+                                contexto.fillText("REMÉDIOS", 110, 370);
+                                contexto.closePath();
+                            },
+
+                            informações_Perigoso: function() {
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.font = "18px fantasy";
+                                contexto.fillText("LIXEIRA: " + lixeiras.texto[6], 130, 170);
+                                contexto.fillText("COR: " + this.cor_lixeira[6], 130, 210);
+                                contexto.fillText("DESCRIÇÃO: NESTA LIXEIRA, LIXOS PERIGOSOS", 130, 250);
+                                contexto.fillText("SÃO DESCARTADOS", 110, 290);
+                                contexto.fillText("EXEMPLOS: PILHAS E BATERIAS (COM EXCEÇÃO ", 130, 330);
+                                contexto.fillText("DE ESTAREM SOBRECARREGADAS)", 110, 370);
+                                contexto.closePath();
+                            },
+
+                            informações_Radioativo: function() {
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.font = "18px fantasy";
+                                contexto.fillText("LIXEIRA: " + lixeiras.texto[7], 130, 170);
+                                contexto.fillText("COR: " + this.cor_lixeira[7], 130, 210);
+                                contexto.fillText("DESCRIÇÃO: NESTA LIXEIRA, LIXOS RADIOATI -", 130, 250);
+                                contexto.fillText("VOS SÃO DESCARTADOS", 110, 290);
+                                contexto.fillText("EXEMPLOS: CONTÂINERS DE URÂNIO E PLUTÔ - ", 130, 330);
+                                contexto.fillText("NIO, SERINGAS E OUTROS OBJETOS CONTAMINA -", 110, 370);
+                                contexto.fillText("DOS", 110, 410);
+                                contexto.closePath();
+                            },
+
+                            // Métodos de informações -- Terceira linha
+
+                            informações_Orgânico: function() {
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.font = "18px fantasy";
+                                contexto.fillText("LIXEIRA: " + lixeiras.texto[8], 130, 170);
+                                contexto.fillText("COR: " + this.cor_lixeira[8], 130, 210);
+                                contexto.fillText("DESCRIÇÃO: NESTA LIXEIRA, LIXOS ORGÂNICOS", 130, 250);
+                                contexto.fillText("SÃO DESCARTADOS", 110, 290);
+                                contexto.fillText("EXEMPLOS: RESTOS DE ALIMENTOS ", 130, 330);
+                                contexto.closePath();
+                            },
+
+                            informações_Não_Reciclável: function() {
+                                contexto.beginPath();
+                                contexto.fillStyle = "black";
+                                contexto.strokeStyle = "black";
+                                contexto.font = "18px fantasy";
+                                contexto.fillText("LIXEIRA: " + lixeiras.texto[9], 130, 170);
+                                contexto.fillText("COR: " + this.cor_lixeira[9], 130, 210);
+                                contexto.fillText("DESCRIÇÃO: NESTA LIXEIRA, LIXOS NÃO - RECI -", 130, 250);
+                                contexto.fillText("CLÁVEIS SÃO DESCARTADOS", 110, 290);
+                                contexto.fillText("EXEMPLOS: FRALDAS E PAPÉIS HIGIÊNICOS USA - ", 130, 330);
+                                contexto.fillText("DOS, CHICLETES E LÂMPADAS (DEVIDO ÀS SUAS ", 110, 370);
+                                contexto.fillText("SUBSTÂNCIAS TÓXICAS)", 110, 410);
+                                contexto.closePath();
+                            },
+
+                            // Método de escolha sobre qual informação apresentar
+
+                            informações_escolhidas: function(número) {
+                                switch(número) {
+                                    case 0:
+                                        this.informações_Papel();
+                                        break;
+
+                                    case 1: 
+                                        this.informações_Plástico();
+                                        break;
+
+                                    case 2:
+                                        this.informações_Vidro();
+                                        break;
+
+                                    case 3:
+                                        this.informações_Metal();
+                                        break;
+
+                                    case 4:
+                                        this.informações_Madeira();
+                                        break;
+
+                                    case 5:
+                                        this.informações_Hospitalares();
+                                        break;
+
+                                    case 6:
+                                        this.informações_Perigoso();
+                                        break;
+
+                                    case 7:
+                                        this.informações_Radioativo();
+                                        break;
+
+                                    case 8:
+                                        this.informações_Orgânico();
+                                        break;
+
+                                    case 9:
+                                        this.informações_Não_Reciclável();
+                                        break;
+                                } /* Para cada valor atribuído ao parâmetro "número", um conjunto de informações diferente é exibido. */
+                            }
+                        };
+
+                        // Funções
+
+                            function iniciar() {
+                                ALTURA = window.innerHeight; // Captura a altura da tela do usuário.
+                                LARGURA = window.innerWidth; // Captura a largura da tela do usuário.
+
+                                if (LARGURA >= 550) {
+                                    LARGURA = 550;
+                                    ALTURA = 550;
+                                } // Caso a largura da tela do usuário for igual ou maior que 550 pixels, as variáveis "LARGURA" e "ALTURA" valerão 550.
+
+                                canvas = document.getElementById("canvas");
+                                canvas.width = LARGURA;
+                                canvas.height = ALTURA;
+                                canvas.style.border = "3px solid black";
+
+                                contexto = canvas.getContext("2d");
+
+                                contexto.canvas.addEventListener("mousedown", clique); // Ao clicar na canvas, a função "clique" é chamada.
+
+                                rodar();
+                            }
+
+                           
+                            function clique(evento) {
+
+                                   
+                                   
+                                   switch(informações_lixeira) { /* Cada vez que a canvas é clicada, um valor diferente é atribuído à variável "informações_lixeira; assim, um grupo de informações diferentes é exibido por vez.*/
+
+                                        case 0:
+                                            caixa_de_texto.desenhar(); 
+                                            caixa_de_texto.informações_escolhidas(0);
+                                            informações_lixeira = 1;
+                                            break;
+
+                                        case 1:
+                                            caixa_de_texto.desenhar(); 
+                                            caixa_de_texto.informações_escolhidas(1);
+                                            informações_lixeira = 2;
+                                            break;
+
+                                        case 2:
+                                            caixa_de_texto.desenhar(); 
+                                            caixa_de_texto.informações_escolhidas(2);
+                                            informações_lixeira = 3;
+                                            break;
+
+                                        case 3:
+                                            caixa_de_texto.desenhar(); 
+                                            caixa_de_texto.informações_escolhidas(3);
+                                            informações_lixeira = 4;
+                                            break;
+
+                                        case 4:
+                                            caixa_de_texto.desenhar();
+                                            caixa_de_texto.informações_escolhidas(4);
+                                            informações_lixeira = 5;
+                                            break;
+
+                                        case 5:
+                                            caixa_de_texto.desenhar(); 
+                                            caixa_de_texto.informações_escolhidas(5);
+                                            informações_lixeira = 6;
+                                            break;
+
+                                        case 6:
+                                            caixa_de_texto.desenhar(); 
+                                            caixa_de_texto.informações_escolhidas(6);
+                                            informações_lixeira = 7;
+                                            break;
+
+                                        case 7:
+                                            caixa_de_texto.desenhar(); 
+                                            caixa_de_texto.informações_escolhidas(7);
+                                            informações_lixeira = 8;
+                                            break;
+
+                                        case 8:
+                                            caixa_de_texto.desenhar(); 
+                                            caixa_de_texto.informações_escolhidas(8);
+                                            informações_lixeira = 9;
+                                            break;
+
+                                        case 9:
+                                            caixa_de_texto.desenhar(); 
+                                            caixa_de_texto.informações_escolhidas(9);
+                                            informações_lixeira = 10;
+                                            break;
+
+                                        case 10:
+                                            informações_lixeira = 11;
+
+                                         case 11:
+                                            informações_lixeira = 0;
+                                            limpar(); /* Quando "informações_lixeira" valer 11, ela receberá 0 e chamará a função rodar; assim, tanto a tela quanto o switch são reiniciados.*/
+                                            rodar();
+                                        
+                                    } /* A cada clique, um valor diferente é atribuído à variável "informações_lixeira" e, consequentemente, um conjunto de informações diferente é exibido. Quando a variável valer 10, a função "rodar" é chamada, fazendo com que a caixa de texto seja apagada.*/
+                                
+                            }
+
+                            function limpar() {
+                                contexto.clearRect(0, 0, LARGURA, ALTURA);
+                            }
+
+                            function rodar() {
+                                atualizar();
+                                desenhar(); // primeira atualiza e depois desenha.
+
+
+                                window.requestAnimationFrames(rodar); // toda vez que a janela requerir outro frame para processar, a função chamará a si mesma (loop infinito).
+                            }
+
+                            function atualizar() {
+                                frames++;
+                            }
+
+                            function desenhar() {
+
+                               // Fundo
+                               contexto.beginPath();
+                               contexto.fillStyle = "limegreen";
+                               contexto.fillRect(0, 0, LARGURA, ALTURA);
+                               contexto.closePath();
+
+                               // Lixeiras
+                                // Primeira linha
+                                    lixeiras.número_da_lixeira(0); /* PAPEL */
+                                    lixeiras.número_da_lixeira(1); /* PLÁSTICO */
+                                    lixeiras.número_da_lixeira(2); /* VIDRO */
+                                    lixeiras.número_da_lixeira(3); /* METAL */
+
+                                // Segunda linha
+                                    lixeiras.número_da_lixeira(4); /* MADEIRA */
+                                    lixeiras.número_da_lixeira(5); /* HOSPITALAR */
+                                    lixeiras.número_da_lixeira(6); /* PERIGOSO */
+                                    lixeiras.número_da_lixeira(7); /* RADIOATIVO */
+
+                                // Terceira linha
+                                    lixeiras.número_da_lixeira(8); /* ORGÂNICO */
+                                    lixeiras.número_da_lixeira(9); /* NÃO-RECICLÁVEL */
+                            }
+
+                        // Funcionamento
+                            iniciar();
+
+                    </script>
+                    	
+                  	<br /> <br /> 
+                  	<hr width="100%" />
+                  	<br />
+                </div> <!-- CONTEÚDO ← -->
+
+                <div id="Créditos">COPYRIGHT<sup>&copy</sup> 2018 -- UNIP / ARAÇATUBA</div> <!-- CRÉDITOS -->
+  				
+   			</div> <!-- DIVISÓRIA RESPONSIVA 2 ← -->
+            
+		</div> <!-- DIVISÓRIA RESPONSIVA 1 ← -->
+        
+	</body>
+    
+</html>

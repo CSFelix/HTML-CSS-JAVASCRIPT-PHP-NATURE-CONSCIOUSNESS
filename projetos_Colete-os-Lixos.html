@@ -1,0 +1,777 @@
+<!doctype html>
+
+<html>
+
+	<head>
+    
+		<meta charset="utf-8" />
+        <meta name="description" content="Venha aprender sobre a reciclagem de maneira fácil e divertida. Disponibilizamos blogs e projetos (javascript e download docx) diversos. Toda semana um conteúdo novo." />
+        <meta name="author" content="Gabriel Felix dos Santos, Matheus Gustavo de Oliveira Santos e Matheus Augusto Lisboa Maruca" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+		<title>CONSCIÊNCIA DA NATUREZA</title>
+        
+		<link href="CSS/boilerplate.css" rel="stylesheet" type="text/css" /> <!-- CSS para responsividade -->
+		<link href="CSS/style-global.css" rel="stylesheet" type="text/css" /> <!-- CSS global -->
+        <link rel="stylesheet" type="text/css" href="CSS/style-navegação-vertical.css"> <!-- CSS específico da divisória "Navegação_Vertical" -->
+      
+		<script src="JAVA/respond.min.js"></script> <!-- JAVA para responsividade -->
+      
+      	<style>
+		
+			body {
+				background-color: lightblue;
+			}
+
+			canvas {
+				margin-top: 0%;
+				bottom: 0%;
+				margin-left: 12.5%;
+				right: 0%;
+			} /* Posicionamento do canvas no centro da página.*/
+
+            canvas {
+                width: 75%;
+            } /* Definição do comprimento da canvas.*/
+			
+		</style>
+        
+	</head>
+
+	<body>
+
+		<div class="gridContainer clearfix"> <!-- → DIVISÓRIA RESPONSIVA 1 -->
+  			<div id="LayoutDiv1"> <!-- → DIVISÓRIA RESPONSIVA 2 -->
+            
+            	<div id="Nome_do_Website"> <!-- → APRESENTAÇÃO -->
+                	<h1>Consciência da Natureza</h1>
+                    <h5><em>"Seus atos de hoje serão seu futuro de amanhã"</em></h5>
+
+                   <ul id="Menu">
+                        <li><a href="index.html">INÍCIO</a></li> <!-- A id "Está_Aqui" serve para identificar a página que está aberta. No css "style-global", a cor desse item é diferente dos demais, assim, o usuário saberá em qual página ele está. -->
+                        <li><a href="blogs.html">BLOGS</a></li>
+                        <li><a href="projetos.html" id="Está_Aqui">PROJETOS</a></li>
+                        <li><a href="sugestoes.html">SUGESTÕES</a></li>
+                        <li><a href="contato.html">CONTATO</a></li>
+                   </ul>
+
+                    
+                </div> <!-- APRESENTAÇÃO ← -->
+
+                <div id="Navegação_Vertical"> <!-- → Navegação Vertical -->
+                  <p>Veja também</p> <br /> 
+                  <p id="subir">Blogs:</p>
+                  <ul>
+                    <li><a href="blogs_Reciclagem-Introdução.html">Reciclagem: Introdução</a></li> <br />
+                    <li><a href="blogs_Mega-Winner.html">Mega Winner</a></li> <br />
+                    <li><a href="blogs_Tabela-de-Decomposição.html">Tabela de decomposição</a></li> <br />
+                    <li><a href="blogs_Reciclar-para-o-quê.html">Reciclar: para que?</a></li> <br />
+                     <li><a href="blogs_Descarte-de-embalagens-agrotóxicas-em-Mirandópolis.html">Descarte de embalagens agrotóxicas em Mirandópolis</a></li> <br />
+                  </ul>
+                  <p>Projetos:</p>
+                  <ul>
+                      <li><a href="projetos_Colete-os-Lixos.html" id="Está_Aqui">Colete os lixos</a></li> <br />
+                      <li><a href="projetos_Conheça-as-lixeiras-recicláveis.html">Conheça as lixeiras recicláveis</a></li> <br />
+                      <li><a href="projetos_Introdução-Quiz.html">Quiz</a></li> <br />
+                  </ul>
+                </div> <!-- Navegação Vertical ← -->
+
+
+                <div id="Conteúdo"> <!-- → CONTEÚDO -->
+                	<br /> <br />
+                    <hr width="100%" />
+                    <br />
+                
+               	  	<h3>COLETE OS LIXOS</h3>
+                    <a href="projetos.html"><img id="Retornar" src="Imagens\Layout\Retornar.png" width="3%" /></a>
+                    <br /> <br />
+                    <p> COMO JOGAR: clique com o mouse dentro da canvas para iniciar o jogo. Você deverá controlar uma lixeira reciclável e coletar todas as bolas com a mesma cor que ela. Caso queira colorir a lixeira, clique com o mouse.</p>
+                    <p>ADVERTÊNCIAS: cuidado com a bola preta, se você a coletar é fim de jogo na certa. A bola branca é uma faca de dois gumes, às vezes lhe dá uma vida extra, às vezes lhe tira.</p>
+                    <p>CONTROLES: mouse (deslizar → movimento da lixeira; clique → colorir lixeira).</p>
+                    <p> OBS.: caso seu navegador seja o Mozila Firefox, poderá haver alguns bugs em relação ao processamento da canvas, mas não se preocupe, estamos trabalhando para solucionar o problema.</p>
+
+                    <canvas id="canvas">Aplicação não suportada pelo navegador. Por favor, atualize-o para sua versão mais recente.</canvas>
+		
+                    <script language="javascript" type="text/javascript"> // Tentei dar a melhor explicação possível, mas mesmo assim a interpretação do script parecer confusa, sinto muito ;(.
+					
+                    	// Variáveis do jogo 
+                    		var canvas, contexto, ALTURA, LARGURA, frames, placar = 0, vidas = 5, Tela_Atual, mouseX,
+
+                    		// Telas do game
+                    		telas = {
+                    			jogar: 0,
+                    			jogando: 1,
+                    			perdeu: 2,
+                    		}, // Para cada chave, uma tela diferente é carregada no jogo.
+
+                    		// Objetos de nuvens
+                    		nuvens = {
+                    			raio_x: 50,
+                    			raio_y: 25,
+
+                    			desenhar: function(x, y) {
+                    				contexto.beginPath();
+                    				contexto.fillStyle = "white";
+                    				contexto.ellipse(x, y, this.raio_x, this.raio_y, 0, 0, 2 * Math.PI);
+                    				contexto.fill();
+                    				contexto.stroke();
+                    				contexto.closePath();
+                    			}, // Desenha as nuvens do game
+                    		}, 
+
+                    		lixeira = {
+                    			// Chaves da lixeira → todas elas correspondem apenas ao corpo do objeto
+                    			cor: ["blue", "green", "red", "yellow"],
+                    			número_aleatório: Math.floor(4 * Math.random()),  // Essa chave é uma das mais importantes desse objeto, já que ela inclementa a mudança de cor do mesmo.
+                    			x: 400,
+                    			x_real: LARGURA - this.x,
+                    			y: 175,
+                    			largura: 450,
+                    			altura: 425,
+
+                    			// Chaves da faixa → todas elas correspondem à faixa branca presente no corpo
+                    			cor_faixa: "white",
+                    			y_faixa: 125,
+                    			altura_faixa: 520,
+
+                    			// Chaves do texto → todas elas correspondem ao texto que identifica o tipo de lixeira (PAPEL, PLÁSTICO ...)
+                    			texto: ["PAPEL", "VIDRO", "PLÁSTICO", "METAL"],
+                    			x_texto: [LARGURA - 372, LARGURA - 374, LARGURA - 385, LARGURA - 374],
+                    			y_texto: 100,
+
+                    			desenhar: function() {
+                    				// Desenha a lixeira
+                    				contexto.beginPath();
+                    				contexto.fillStyle = this.cor[this.número_aleatório];
+                    				contexto.fillRect(this.x_real, ALTURA - this.y, LARGURA - this.largura, ALTURA - this.altura);
+                    				contexto.strokeRect(this.x_real, ALTURA - this.y, LARGURA - this.largura, ALTURA - this.altura);
+                    				contexto.closePath();
+
+                    				// Desenha a faixa branca
+                    				contexto.beginPath();
+                    				contexto.fillStyle = this.cor_faixa;
+                    				contexto.fillRect(this.x_real, ALTURA - this.y_faixa, LARGURA - this.largura, ALTURA - this.altura_faixa);
+                    				contexto.strokeRect(this.x_real, ALTURA - this.y_faixa, LARGURA - this.largura, ALTURA - this.altura_faixa);
+                    				contexto.closePath();
+
+                    				// Desenha o texto
+                    				contexto.beginPath();
+                    				contexto.fillStyle = "black";
+                    				contexto.strokeStyle = "black";
+                    				contexto.font = "20px fantasy";
+                    				contexto.fillText(this.texto[this.número_aleatório], this.x_texto[this.número_aleatório], ALTURA - this.y_texto);
+                    				contexto.closePath();
+                    			}, // Apenas desenha o objeto por completo
+
+                 				movimentar: function(evento) {
+                 					this.x_real = mouseX; 
+                                    this.x_texto[this.número_aleatório] = mouseX + 28;
+                                    this.x_texto[2] = mouseX + 13;
+                                }, // Esse método é chamado na função "movimento". Quando a variável "Tela_Atual" valer "telas.jogando" e o mouse for movimentado, a posição X deste será armazenada na variável "mouseX" que, por sua vez, inclementará as chaves "x_real", "x_texto" e "x_texto[2]". Houve uma linha especial para "x_texto[2]", porque ela representa a maior palavra (PLÁSTICO), logo, se sua inclementação fosse "mouseX + 28", ficaria parte de sua escrita para fora da lixeira. Para melhor compreensão do primeiro processo, leia o comentário presente em "movimento"
+
+                                colorir: function(evento) {
+                                    this.número_aleatório = Math.floor(4*Math.random());
+                                    this.movimentar(); 
+                                }, // Esse outro método é chamado na função "clique". Quando a variável "Tela_Atual" valer "telas.jogando" e o mouse for pressionado, a chave "número_aleatório" sorteará outro número de 0 - 3, assim, uma nova cor será atribuída à lixeira. Para que essa nova cor seja exibida na tela, o método "movimentar" é chamado (foi escolhido "movimentar" ao invés de "desenhar" para que a lixeira continuasse a acompanhar a posição X do mouse. Caso fosse chamado "desenhar", o texto da lixeira não iria acompanhá-la no momento do clique, causando um pequeno bug.)
+
+                                /* O método abaixo pode parecer gigante, mas logo perceberá que trata-se de um padrão. Portanto, comentarei apenas o primeiro "if ... else". */
+
+                                inclementar: function() {
+                                    if (this.número_aleatório === 0) /* Se "número_aleatório" vale zero, ou seja, se a cor da lixeira for AZUL, então faça isto: */ {
+                                        if (vida_extra.y + vida_extra.raio_y >= ALTURA - this.y && vida_extra.x + vida_extra.raio_x <= this.x_real + LARGURA - this.largura && vida_extra.x - vida_extra.raio_x >= this.x_real) {
+                                            if (vida_extra.número_aleatório === 1) {
+                                                vidas++;
+                                            } else {
+                                                vidas--;
+                                            } // Se a chave "número_aleatório" de "vida_extra" for extamente igual a zero e se a bolinha cair na lixeira, a "vida" aumentará em um, no entanto, caso "número_aleatório" vale um, a vida é diminuída em um. O jogador não sabe qual o valor de "número_aleatório" e a cada vez seu valor é modificado para zero ou um. Bem, capturar a bola BRANCA é uma faca de dois gumes.
+
+                                            vida_extra.y = 0;
+                                            vida_extra.x = Math.floor(500 * Math.random());
+                                            vida_extra.velocidade = Math.floor(20 * Math.random() + 5);
+                                            vida_extra.número_aleatório = Math.floor(2 * Math.random());
+                                        } // Para a bolinha BRANCA: SE a posição Y de sua extremidade for maior ou igual ao do topo da lixeira (ALTURA - this.y), SE a posição X da extremidade direita for menor ou igual ao da lixeira (this.x_real + LARGURA = posição X da extremidade direita) e SE a X da extremidade esquerda for maior ou igual ao da lixeira → → → Aumente a vida por um ponto, zere a posição Y da bolinha (para que ela retorne ao topo do canvas) e sorteie outro número aleatório de 0 - 499 para a chave "x" e de 0 - 3 + 2 para a chave "velocidade" correspondentes ao da bolinha BRANCA do objeto "lixos". Assim, a vida aumentará em um ponto, enquanto que a bolinha desloca-se ao topo do canvas, assumindo uma nova velocidade e posição X.
+
+                                        if (lixos.y[0] + lixos.raio_y >= ALTURA - this.y && lixos.x[0] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[0] + lixos.raio_x >= this.x_real) {
+                                            placar++;
+                                            lixos.y[0] = 0;
+                                            lixos.x[0] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[0] = Math.floor(3 * Math.random() + 2);
+                                        } // Para a bolinha AZUL: SE a posição Y de sua extremidade for maior ou igual ao do topo da lixeira (ALTURA - this.y), SE a posição X da extremidade direita for menor ou igual ao da lixeira (this.x_real + LARGURA = posição X da extremidade direita) e SE a X da extremidade esquerda for maior ou igual ao da lixeira → → → Aumente o placar por um ponto, zere a posição Y da bolinha (para que ela retorne ao topo do canvas) e sorteie outro número aleatório de 0 - 499 para a chave "x" e de 0 - 3 + 2 para a chave "velocidade" correspondentes ao da bolinha AZUL do objeto "lixos". Assim, o placar aumentará em um ponto, enquanto que a bolinha desloca-se ao topo do canvas, assumindo uma nova velocidade e posição X. 
+
+                                        if (lixos.y[1] + lixos.raio_y >= ALTURA - this.y && lixos.x[1] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[1] + lixos.raio_x >= this.x_real) {
+                                            vidas--;
+                                            lixos.y[1] = 0;
+                                            lixos.x[1] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[1] = Math.floor(3 * Math.random() + 2);
+                                        } // Para a bolinha VERDE: SE a posição Y de sua extremidade for maior ou igual ao do topo da lixeira (ALTURA - this.y), SE a posição X da extremidade direita for menor ou igual ao da lixeira (this.x_real + LARGURA = posição X da extremidade direita) e SE a X da extremidade esquerda for maior ou igual ao da lixeira → → → Diminua a vida por um ponto, zere a posição Y da bolinha (para que ela retorne ao topo do canvas) e sorteie outro número aleatório de 0 - 499 para a chave "x" e de 0 - 3 + 2 para a chave "velocidade" correspondentes ao da bolinha VERDE do objeto "lixos". Assim, a vida diminuirá em um ponto, enquanto que a bolinha desloca-se ao topo do canvas, assumindo uma nova velocidade e posição X. 
+           
+                                        if (lixos.y[2] + lixos.raio_y >= ALTURA - this.y && lixos.x[2] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[2] + lixos.raio_x >= this.x_real) {
+                                            vidas--;
+                                            lixos.y[2] = 0;
+                                            lixos.x[2] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[2] = Math.floor(3 * Math.random() + 2);
+                                        } // Para a bolinha VERMELHA: SE a posição Y de sua extremidade for maior ou igual ao do topo da lixeira (ALTURA - this.y), SE a posição X da extremidade direita for menor ou igual ao da lixeira (this.x_real + LARGURA = posição X da extremidade direita) e SE a X da extremidade esquerda for maior ou igual ao da lixeira → → → Diminua a vida por um ponto, zere a posição Y da bolinha (para que ela retorne ao topo do canvas) e sorteie outro número aleatório de 0 - 499 para a chave "x" e de 0 - 3 + 2 para a chave "velocidade" correspondentes ao da bolinha VERMELHA do objeto "lixos". Assim, a vida diminuirá em um ponto, enquanto que a bolinha desloca-se ao topo do canvas, assumindo uma nova velocidade e posição X. 
+        
+                                        if (lixos.y[3] + lixos.raio_y >= ALTURA - this.y && lixos.x[3] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[3] + lixos.raio_x >= this.x_real) {
+                                            vidas--;
+                                            lixos.y[3] = 0;
+                                            lixos.x[3] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[3] = Math.floor(3 * Math.random() + 2);
+                                        } // Para a bolinha AMARELA: SE a posição Y de sua extremidade for maior ou igual ao do topo da lixeira (ALTURA - this.y), SE a posição X da extremidade direita for menor ou igual ao da lixeira (this.x_real + LARGURA = posição X da extremidade direita) e SE a X da extremidade esquerda for maior ou igual ao da lixeira → → → Diminua a vida por um ponto, zere a posição Y da bolinha (para que ela retorne ao topo do canvas) e sorteie outro número aleatório de 0 - 499 para a chave "x" e de 0 - 3 + 2 para a chave "velocidade" correspondentes ao da bolinha AMARELA do objeto "lixos". Assim, a vida diminuirá em um ponto, enquanto que a bolinha desloca-se ao topo do canvas, assumindo uma nova velocidade e posição X. 
+
+                                        if (lixos.y[4] + lixos.raio_y >= ALTURA - this.y && lixos.x[4] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[4] + lixos.raio_x >= this.x_real) {
+                                            vidas = 0;
+                                            lixos.y[4] = 0;
+                                            lixos.x[4] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[4] = Math.floor(3 * Math.random() + 2);
+                                        } // Para a bolinha PRETA: ocorre o mesmo quando a lixeira captura as bolas VERDE, VERMELHA e AMARELA, porém, ao pegá-la, será derrota definitiva (vidas = 0).
+
+                                        if (vidas <= 0) {
+                                            Tela_Atual = telas.perdeu;
+                                        } // Se a variável "vidas" for menor ou igual a zero, "Tela_Atual" valerá "telas.perdeu". Resumindo, fim de jogo!
+                                        
+                                        /* As condições abaixo seguem o mesmo padrão, a única coisa que mudará é a cor associada. Por exemplo: se a lixeira for verde, será a bolinha VERDE que aumentará a pontuação; caso seja a AMARELA, será a bola AMARELA ... */
+
+                                    } else if (this.número_aleatório === 1) /* COR: VERDE */ {
+                                        if (vida_extra.y + vida_extra.raio_y >= ALTURA - this.y && vida_extra.x + vida_extra.raio_x <= this.x_real + LARGURA - this.largura && vida_extra.x - vida_extra.raio_x >= this.x_real) {
+                                            if (vida_extra.número_aleatório === 1) {
+                                                vidas++;
+                                            } else {
+                                                vidas--;
+                                            } // Se a chave "número_aleatório" de "vida_extra" for extamente igual a zero e se a bolinha cair na lixeira, a "vida" aumentará em um, no entanto, caso "número_aleatório" vale um, a vida é diminuída em um. O jogador não sabe qual o valor de "número_aleatório" e a cada vez seu valor é modificado para zero ou um. Bem, capturar a bola BRANCA é uma faca de dois gumes.
+
+                                            vida_extra.y = 0;
+                                            vida_extra.x = Math.floor(500 * Math.random());
+                                            vida_extra.velocidade = Math.floor(20 * Math.random() + 5);
+                                            vida_extra.número_aleatório = Math.floor(2 * Math.random());
+                                        } // Para a bolinha BRANCA: SE a posição Y de sua extremidade for maior ou igual ao do topo da lixeira (ALTURA - this.y), SE a posição X da extremidade direita for menor ou igual ao da lixeira (this.x_real + LARGURA = posição X da extremidade direita) e SE a X da extremidade esquerda for maior ou igual ao da lixeira → → → Aumente a vida por um ponto, zere a posição Y da bolinha (para que ela retorne ao topo do canvas) e sorteie outro número aleatório de 0 - 499 para a chave "x" e de 0 - 3 + 2 para a chave "velocidade" correspondentes ao da bolinha BRANCA do objeto "lixos". Assim, a vida aumentará em um ponto, enquanto que a bolinha desloca-se ao topo do canvas, assumindo uma nova velocidade e posição X.
+
+                                        if (vida_extra.y + vida_extra.raio_y >= ALTURA - this.y && vida_extra.x + vida_extra.raio_x <= this.x_real + LARGURA - this.largura && vida_extra.x - vida_extra.raio_x >= this.x_real) {
+                                            vidas++;
+                                            vida_extra.y = 0;
+                                            vida_extra.x = Math.floor(500 * Math.random());
+                                            vida_extra.velocidade = Math.floor(20 * Math.random() + 5);
+                                        } // Para a bolinha BRANCA: SE a posição Y de sua extremidade for maior ou igual ao do topo da lixeira (ALTURA - this.y), SE a posição X da extremidade direita for menor ou igual ao da lixeira (this.x_real + LARGURA = posição X da extremidade direita) e SE a X da extremidade esquerda for maior ou igual ao da lixeira → → → Aumente a vida por um ponto, zere a posição Y da bolinha (para que ela retorne ao topo do canvas) e sorteie outro número aleatório de 0 - 499 para a chave "x" e de 0 - 3 + 2 para a chave "velocidade" correspondentes ao da bolinha BRANCA do objeto "lixos". Assim, a vida aumentará em um ponto, enquanto que a bolinha desloca-se ao topo do canvas, assumindo uma nova velocidade e posição X.
+
+                                        if (lixos.y[1] + lixos.raio_y >= ALTURA - this.y && lixos.x[1] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[1] + lixos.raio_x >= this.x_real) {
+                                            placar++;
+                                            lixos.y[1] = 0;
+                                            lixos.x[1] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[1] = Math.floor(3 * Math.random() + 2);
+                                        }
+
+                                        if (lixos.y[0] + lixos.raio_y >= ALTURA - this.y && lixos.x[0] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[0] + lixos.raio_x >= this.x_real) {
+                                            vidas--;
+                                            lixos.y[0] = 0;
+                                            lixos.x[0] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[0] = Math.floor(3 * Math.random() + 2);
+                                        }
+       
+                                        if (lixos.y[2] + lixos.raio_y >= ALTURA - this.y && lixos.x[2] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[2] + lixos.raio_x >= this.x_real) {
+                                            vidas--;
+                                            lixos.y[2] = 0;
+                                            lixos.x[2] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[2] = Math.floor(3 * Math.random() + 2);
+                                        }
+     
+                                        if (lixos.y[3] + lixos.raio_y >= ALTURA - this.y && lixos.x[3] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[3] + lixos.raio_x >= this.x_real) {
+                                            vidas--;
+                                            lixos.y[3] = 0;
+                                            lixos.x[3] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[3] = Math.floor(3 * Math.random() + 2);
+                                        }
+
+                                        if (lixos.y[4] + lixos.raio_y >= ALTURA - this.y && lixos.x[4] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[4] + lixos.raio_x >= this.x_real) {
+                                            vidas = 0;
+                                            lixos.y[4] = 0;
+                                            lixos.x[4] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[4] = Math.floor(3 * Math.random() + 2);
+                                        }
+
+                                        if (vidas <= 0) {
+                                            Tela_Atual = telas.perdeu;
+                                        }
+
+                                    } else  if (this.número_aleatório === 2) /* COR: VERMELHA */ {
+                                        if (vida_extra.y + vida_extra.raio_y >= ALTURA - this.y && vida_extra.x + vida_extra.raio_x <= this.x_real + LARGURA - this.largura && vida_extra.x - vida_extra.raio_x >= this.x_real) {
+                                            if (vida_extra.número_aleatório === 1) {
+                                                vidas++;
+                                            } else {
+                                                vidas--;
+                                            } // Se a chave "número_aleatório" de "vida_extra" for extamente igual a zero e se a bolinha cair na lixeira, a "vida" aumentará em um, no entanto, caso "número_aleatório" vale um, a vida é diminuída em um. O jogador não sabe qual o valor de "número_aleatório" e a cada vez seu valor é modificado para zero ou um. Bem, capturar a bola BRANCA é uma faca de dois gumes.
+
+                                            vida_extra.y = 0;
+                                            vida_extra.x = Math.floor(500 * Math.random());
+                                            vida_extra.velocidade = Math.floor(20 * Math.random() + 5);
+                                            vida_extra.número_aleatório = Math.floor(2 * Math.random());
+                                        } // Para a bolinha BRANCA: SE a posição Y de sua extremidade for maior ou igual ao do topo da lixeira (ALTURA - this.y), SE a posição X da extremidade direita for menor ou igual ao da lixeira (this.x_real + LARGURA = posição X da extremidade direita) e SE a X da extremidade esquerda for maior ou igual ao da lixeira → → → Aumente a vida por um ponto, zere a posição Y da bolinha (para que ela retorne ao topo do canvas) e sorteie outro número aleatório de 0 - 499 para a chave "x" e de 0 - 3 + 2 para a chave "velocidade" correspondentes ao da bolinha BRANCA do objeto "lixos". Assim, a vida aumentará em um ponto, enquanto que a bolinha desloca-se ao topo do canvas, assumindo uma nova velocidade e posição X.
+
+                                        if (vida_extra.y + vida_extra.raio_y >= ALTURA - this.y && vida_extra.x + vida_extra.raio_x <= this.x_real + LARGURA - this.largura && vida_extra.x - vida_extra.raio_x >= this.x_real) {
+                                            vidas++;
+                                            vida_extra.y = 0;
+                                            vida_extra.x = Math.floor(500 * Math.random());
+                                            vida_extra.velocidade = Math.floor(20 * Math.random() + 5);
+                                        } // Para a bolinha BRANCA: SE a posição Y de sua extremidade for maior ou igual ao do topo da lixeira (ALTURA - this.y), SE a posição X da extremidade direita for menor ou igual ao da lixeira (this.x_real + LARGURA = posição X da extremidade direita) e SE a X da extremidade esquerda for maior ou igual ao da lixeira → → → Aumente a vida por um ponto, zere a posição Y da bolinha (para que ela retorne ao topo do canvas) e sorteie outro número aleatório de 0 - 499 para a chave "x" e de 0 - 3 + 2 para a chave "velocidade" correspondentes ao da bolinha BRANCA do objeto "lixos". Assim, a vida aumentará em um ponto, enquanto que a bolinha desloca-se ao topo do canvas, assumindo uma nova velocidade e posição X.
+
+                                        if (lixos.y[2] + lixos.raio_y >= ALTURA - this.y && lixos.x[2] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[2] + lixos.raio_x >= this.x_real) {
+                                            placar++;
+                                            lixos.y[2] = 0;
+                                            lixos.x[2] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[2] = Math.floor(3 * Math.random() + 2);
+                                        }
+
+                                        if (lixos.y[0] + lixos.raio_y >= ALTURA - this.y && lixos.x[0] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[0] + lixos.raio_x >= this.x_real) {
+                                            vidas--;
+                                            lixos.y[0] = 0;
+                                            lixos.x[0] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[0] = Math.floor(3 * Math.random() + 2);
+                                        }
+                                                                              
+                                        if (lixos.y[1] + lixos.raio_y >= ALTURA - this.y && lixos.x[1] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[1] + lixos.raio_x >= this.x_real) {
+                                            vidas--;
+                                            lixos.y[1] = 0;
+                                            lixos.x[1] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[1] = Math.floor(3 * Math.random() + 2);
+                                        }
+                                        
+                                        if (lixos.y[3] + lixos.raio_y >= ALTURA - this.y && lixos.x[3] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[3] + lixos.raio_x >= this.x_real) {
+                                            vidas--;
+                                            lixos.y[3] = 0;
+                                            lixos.x[3] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[3] = Math.floor(3 * Math.random() + 2);
+                                        }
+
+                                         if (lixos.y[4] + lixos.raio_y >= ALTURA - this.y && lixos.x[4] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[4] + lixos.raio_x >= this.x_real) {
+                                            vidas = 0;
+                                            lixos.y[4] = 0;
+                                            lixos.x[4] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[4] = Math.floor(3 * Math.random() + 2);
+                                        }
+
+                                        if (vidas <= 0) {
+                                            Tela_Atual = telas.perdeu;
+                                        }
+
+                                    } else  if (this.número_aleatório === 3) /* COR: AMARELA */ {
+                                        if (vida_extra.y + vida_extra.raio_y >= ALTURA - this.y && vida_extra.x + vida_extra.raio_x <= this.x_real + LARGURA - this.largura && vida_extra.x - vida_extra.raio_x >= this.x_real) {
+                                            if (vida_extra.número_aleatório === 1) {
+                                                vidas++;
+                                            } else {
+                                                vidas--;
+                                            } // Se a chave "número_aleatório" de "vida_extra" for extamente igual a zero e se a bolinha cair na lixeira, a "vida" aumentará em um, no entanto, caso "número_aleatório" vale um, a vida é diminuída em um. O jogador não sabe qual o valor de "número_aleatório" e a cada vez seu valor é modificado para zero ou um. Bem, capturar a bola BRANCA é uma faca de dois gumes.
+
+                                            vida_extra.y = 0;
+                                            vida_extra.x = Math.floor(500 * Math.random());
+                                            vida_extra.velocidade = Math.floor(20 * Math.random() + 5);
+                                            vida_extra.número_aleatório = Math.floor(2 * Math.random());
+                                        } // Para a bolinha BRANCA: SE a posição Y de sua extremidade for maior ou igual ao do topo da lixeira (ALTURA - this.y), SE a posição X da extremidade direita for menor ou igual ao da lixeira (this.x_real + LARGURA = posição X da extremidade direita) e SE a X da extremidade esquerda for maior ou igual ao da lixeira → → → Aumente a vida por um ponto, zere a posição Y da bolinha (para que ela retorne ao topo do canvas) e sorteie outro número aleatório de 0 - 499 para a chave "x" e de 0 - 3 + 2 para a chave "velocidade" correspondentes ao da bolinha BRANCA do objeto "lixos". Assim, a vida aumentará em um ponto, enquanto que a bolinha desloca-se ao topo do canvas, assumindo uma nova velocidade e posição X.
+                                        
+                                        if (vida_extra.y + vida_extra.raio_y >= ALTURA - this.y && vida_extra.x + vida_extra.raio_x <= this.x_real + LARGURA - this.largura && vida_extra.x - vida_extra.raio_x >= this.x_real) {
+                                            vidas++;
+                                            vida_extra.y = 0;
+                                            vida_extra.x = Math.floor(500 * Math.random());
+                                            vida_extra.velocidade = Math.floor(20 * Math.random() + 5);
+                                        } // Para a bolinha BRANCA: SE a posição Y de sua extremidade for maior ou igual ao do topo da lixeira (ALTURA - this.y), SE a posição X da extremidade direita for menor ou igual ao da lixeira (this.x_real + LARGURA = posição X da extremidade direita) e SE a X da extremidade esquerda for maior ou igual ao da lixeira → → → Aumente a vida por um ponto, zere a posição Y da bolinha (para que ela retorne ao topo do canvas) e sorteie outro número aleatório de 0 - 499 para a chave "x" e de 0 - 3 + 2 para a chave "velocidade" correspondentes ao da bolinha BRANCA do objeto "lixos". Assim, a vida aumentará em um ponto, enquanto que a bolinha desloca-se ao topo do canvas, assumindo uma nova velocidade e posição X.
+
+                                        if (lixos.y[3] + lixos.raio_y >= ALTURA - this.y && lixos.x[3] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[3] + lixos.raio_x >= this.x_real) {
+                                            placar++;
+                                            lixos.y[3] = 0;
+                                            lixos.x[3] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[3] = Math.floor(3 * Math.random() + 2);
+                                        }
+
+                                        if (lixos.y[0] + lixos.raio_y >= ALTURA - this.y && lixos.x[0] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[0] + lixos.raio_x >= this.x_real) {
+                                            vidas--;
+                                            lixos.y[0] = 0;
+                                            lixos.x[0] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[0] = Math.floor(3 * Math.random() + 2);
+                                        }
+                                        
+                                        if (lixos.y[1] + lixos.raio_y >= ALTURA - this.y && lixos.x[1] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[1] + lixos.raio_x >= this.x_real) {
+                                            vidas--;
+                                            lixos.y[1] = 0;
+                                            lixos.x[1] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[1] = Math.floor(3 * Math.random() + 2);
+                                        }
+                                       
+                                        if (lixos.y[2] + lixos.raio_y >= ALTURA - this.y && lixos.x[2] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[2] + lixos.raio_x >= this.x_real) {
+                                            vidas--;
+                                            lixos.y[2] = 0;
+                                            lixos.x[2] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[2] = Math.floor(3 * Math.random() + 2);
+                                        }
+
+                                         if (lixos.y[4] + lixos.raio_y >= ALTURA - this.y && lixos.x[4] + lixos.raio_x <= this.x_real + LARGURA - this.largura && lixos.x[4] + lixos.raio_x >= this.x_real) {
+                                            vidas = 0;
+                                            lixos.y[4] = 0;
+                                            lixos.x[4] = Math.floor(500 * Math.random() + 2);
+                                            lixos.velocidade[4] = Math.floor(3 * Math.random() + 2);
+                                        }
+
+                                         if (vidas <= 0) {
+                                            Tela_Atual = telas.perdeu;
+                                        }                                   
+                                    }
+                                }
+                    		},
+
+                            lixos = {
+                                // Chaves das bolinhas → a "x", "y" e "velocidade" possuem cinco espaços com valores "exatamente" iguais porque cada bola receberá um. Assim, o número sorteado em "x[0]" será diferente do do "x[1]", mesmo tendo a mesma definição (Math.floor(500 * Math.random())).
+                                x: [Math.floor(500 * Math.random()), Math.floor(500 * Math.random()), Math.floor(500 * Math.random()), Math.floor(500 * Math.random()), Math.floor(500 * Math.random())],
+                                y: [0, 0, 0, 0, 0],
+                                raio_x: 10,
+                                raio_y: 10,
+                                velocidade: [Math.floor(3 * Math.random()), Math.floor(3 * Math.random()), Math.floor(3 * Math.random()), Math.floor(3 * Math.random()), Math.floor(3 * Math.random())],
+
+                                /* Os métodos "desenhar_Bola_???" seguem um padrão, portanto, se comprender o primeiro, saberá todos. */
+
+                                desenhar_Bola_Azul: function() {
+                                    contexto.beginPath();
+                                    contexto.fillStyle = "blue";
+                                    this.y[0] += this.velocidade[0] + 2;
+                                    contexto.ellipse(this.x[0] + 10, this.y[0], this.raio_x, this.raio_y, 0, 0, 2 * Math.PI);
+                                    contexto.fill();
+                                    contexto.stroke();
+                                    contexto.closePath();
+                                }, // Uma elipse AZUL é desenhada tendo a atribuição [0] para as chaves "y", "x" e "velocidade".
+
+                                desenhar_Bola_Verde: function() {
+                                    contexto.beginPath();
+                                    contexto.fillStyle = "green";
+                                    this.y[1] += this.velocidade[1] + 2;
+                                    contexto.ellipse(this.x[1] + 10, this.y[1], this.raio_x, this.raio_y, 0, 0, 2 * Math.PI);
+                                    contexto.fill();
+                                    contexto.stroke();
+                                    contexto.closePath();
+
+                                }, // Uma elipse VERDE é desenhada tendo a atribuição [1] para as chaves "y", "x" e "velocidade".
+
+                                desenhar_Bola_Vermelha: function() {
+                                    contexto.beginPath();
+                                    contexto.fillStyle = "red";
+                                    this.y[2] += this.velocidade[2] + 2;
+                                    contexto.ellipse(this.x[2] + 10, this.y[2], this.raio_x, this.raio_y, 0, 0, 2 * Math.PI);
+                                    contexto.fill();
+                                    contexto.stroke();
+                                    contexto.closePath();
+                                }, // Uma elipse VERMELHA é desenhada tendo a atribuição [2] para as chaves "y", "x" e "velocidade".
+
+                                desenhar_Bola_Amarela: function() {
+                                    contexto.beginPath();
+                                    contexto.fillStyle = "yellow";
+                                    this.y[3] += this.velocidade[3] + 2;
+                                    contexto.ellipse(this.x[3] + 10, this.y[3], this.raio_x, this.raio_y, 0, 0, 2 * Math.PI);
+                                    contexto.fill();
+                                    contexto.stroke();
+                                    contexto.closePath();
+                                }, // Uma elipse AMARELA é desenhada tendo a atribuição [3] para as chaves "y", "x" e "velocidade".
+
+                                desenhar_Bola_Preta: function() {
+                                    contexto.beginPath();
+                                    contexto.fillStyle = "black";
+                                    this.y[4] += this.velocidade[4] + 2;
+                                    contexto.ellipse(this.x[4] + 10, this.y[4], this.raio_x, this.raio_y, 0, 0, 2 * Math.PI);
+                                    contexto.fill();
+                                    contexto.stroke();
+                                    contexto.closePath();
+                                }, // Uma elipse PRETA é desenhada tendo a atribuição [4] para as chaves "y", "x" e "velocidade".
+
+                                /* Fim dos métodos "desenhar_Bola_???". */
+
+                                /* Mias um padrão. */
+
+                                atualizar_posição: function() {
+                                    if (this.y[0] >= 500) {
+                                        this.y[0] = 0;
+                                        this.x[0] = Math.floor(530 * Math.random() + 10);
+                                        this.velocidade[0] = Math.floor(1,5 * Math.random() + 0,3);
+                                        if (lixeira.número_aleatório === 0) {
+                                            vidas--;
+                                        } 
+                                        // Se a posição Y da bola AZUL for maior ou igual a 500, ela é zerada, enquanto que "x" e "velocidade" sorteiam outro número (0 - 529 para "x"; 0 - 1,5 + 0,3 para "velocidade"). Ademais, caso a cor da lixeira for AZUL, a variável "vidas" diminui em um.
+
+                                    } else if (this.y[1] >= 500) {
+                                        this.y[1] = 0;
+                                        this.x[1] = Math.floor(530 * Math.random() + 10);
+                                        this.velocidade[1] = Math.floor(1,5 * Math.random() + 0,3);
+                                         if (lixeira.número_aleatório === 1) {
+                                            vidas--;
+                                        }
+                                        // Se a posição Y da bola VERDE for maior ou igual a 500, ela é zerada, enquanto que "x" e "velocidade" sorteiam outro número (0 - 529 para "x"; 0 - 1,5 + 0,3 para "velocidade"). Ademais, caso a cor da lixeira for VERDE, a variável "vidas" diminui em um.
+
+                                    } else if (this.y[2] >= 500) {
+                                        this.y[2] = 0;
+                                        this.x[2] = Math.floor(530 * Math.random() + 10);
+                                        this.velocidade[2] = Math.floor(1,5 * Math.random() + 0,3);
+                                         if (lixeira.número_aleatório === 2) {
+                                            vidas--;
+                                        }
+                                        // Se a posição Y da bola VERMELHA for maior ou igual a 500, ela é zerada, enquanto que "x" e "velocidade" sorteiam outro número (0 - 529 para "x"; 0 - 1,5 + 0,3 para "velocidade"). Ademais, caso a cor da lixeira for VERMELHA, a variável "vidas" diminui em um.
+
+                                    } else if (this.y[3] >= 500) {
+                                        this.y[3] = 0;
+                                        this.x[3] = Math.floor(530 * Math.random() + 10);
+                                        this.velocidade[3] = Math.floor(1,5 * Math.random() + 0,3);
+                                         if (lixeira.número_aleatório === 3) {
+                                            vidas--;
+                                        }
+                                        // Se a posição Y da bola AMARELA for maior ou igual a 500, ela é zerada, enquanto que "x" e "velocidade" sorteiam outro número (0 - 529 para "x"; 0 - 1,5 + 0,3 para "velocidade"). Ademais, caso a cor da lixeira for AMARELA, a variável "vidas" diminui em um.
+
+                                    } else if (this.y[4] >= 500) {
+                                        this.y[4] = 0;
+                                        this.x[4] = Math.floor(530 * Math.random() + 10);
+                                        this.velocidade[4] = Math.floor(1,5 * Math.random() + 0,3);
+                                    } // Se a posição Y da bola PRETA for maior ou igual a 500, ela é zerada, enquanto que "x" e "velocidade" sorteiam outro número (0 - 529 para "x"; 0 - 1,5 + 0,3 para "velocidade"). Ademais, caso a cor da lixeira for PRETA, a variável "vidas" diminui em um.
+                                    
+                                }, 
+
+                                /* Fim do método "atualizar_posição". */
+
+                                zerando_posição: function() {
+                                    this.y[0] = 0;
+                                    this.y[1] = 0;
+                                    this.y[2] = 0;
+                                    this.y[3] = 0;
+                                    this.y[4] = 0;
+                                }, // Esse método é chamado na função "clique" quando "Tela_Atual" valer "telas.jogar". Ela simplesmente zera todos os espaços da chave-array "y".  
+                            },
+
+                            vida_extra = {
+                                x: Math.floor(500 * Math.random()),
+                                y: 0,
+                                raio_x: 10,
+                                raio_y: 10,
+                                velocidade: Math.floor(10 * Math.random() + 1),
+                                número_aleatório: Math.floor(2 * Math.random()),
+
+                                desenhar: function() {
+                                    contexto.beginPath();
+                                    contexto.fillStyle = "white";
+                                    this.y += this.velocidade;
+                                    contexto.ellipse(this.x + 10, this.y, this.raio_x, this.raio_y, 0, 0, 2 * Math.PI);
+                                    contexto.stroke();
+                                    contexto.fill();
+                                    contexto.closePath();
+                                },
+
+                                atualizar_posição: function() {
+                                    if (this.y >= 500) {
+                                        this.y = 0;
+                                        this.x = Math.floor(500 * Math.random());
+                                        this.velocidade = Math.floor(10 * Math.random() + 1);
+                                        this.número_aleatório = Math.floor(2 * Math.random());
+                                    }
+                                }, // Esse método faz a mesma coisa que o "atualizar_posição" de "lixos".
+                            };
+
+                    	// Funções do jogo
+                    		function iniciar() {
+                    			ALTURA = window.innerHeight; // A altura da tela do usuário é capturada e armazenada na variável.
+                    			LARGURA = window.innerWidth; // A largura da tela do usuário é capturada e armazenada na variável.
+
+                    			if (LARGURA >= 550) {
+                                    ALTURA = 550;
+                                    LARGURA = 550;
+                                } // Se a largura da tela for maior que 550 pixels, automaticamente, as variáveis "ALTURA" e "LARGURA" recebem 550.
+
+                    			canvas = document.getElementById("canvas"); // A variável "canvas" captura uma tag canvas.
+                    			canvas.height = ALTURA; // A altura da canvas é igual à "ALTURA".
+                                canvas.width = LARGURA; // Já a largura, à "LARGURA".
+                    			canvas.style.border = "3px solid black"; // Uma borda preta é adicionada no canvas.
+
+                    			contexto = canvas.getContext("2d"); // Tudo o que for desenhado no canvas será em 2D.
+
+                    			Tela_Atual = telas.jogar; // A primeira tela é definida.
+
+                    			contexto.canvas.addEventListener("mousedown", clique); // Quando o mouse for pressionado dentro do canvas, a função "clique" é chamada.
+                    			document.addEventListener("mousemove", movimento); // Quando o mouse for deslocado dentro do documento, a função "movimento" é chamada. Ela foi configurada para dentro do documento para que quando´a janela for diminuída, o movimento da lixeira não seja prejudicado.
+
+                    			rodar(); // a função "rodar" é chamada.
+                    	
+                    		}
+
+                    		function clique(evento) /* Essa função só ocorre quando o mouse é pressionado dentro da canvas. */ {
+                    			if (Tela_Atual === telas.jogar) {
+                                    lixeira.número_aleatório = Math.floor(4 * Math.random());
+                                    lixos.zerando_posição();
+                    				Tela_Atual = telas.jogando;
+                                    /* Se "Tela_Atual" vale "telas.jogar", a chave "número_aleatório" do objeto lixeira sorteia um número aleatório entre 0 - 3, o método "zerando_posição" de "lixos" é chamado e "Tela_Atual" recebe "telas.jogando". */
+
+                    			} else if (Tela_Atual === telas.perdeu) {
+                                    limpar();
+                                    placar = 0;
+                                    vidas = 5;
+                                    Tela_Atual = telas.jogar;
+                                    /* Se "Tela_Atual" vale "telas.perdeu", a variável "placar" é zerada enquanto que "vidas" é novamente definida para cinco. Depois, "Tela_Atual" recebe "telas.jogar". */
+
+                    			} else if (Tela_Atual === telas.jogando) {
+                                    lixeira.colorir();
+                                    /* Se "Tela_Atual" vale "telas.jogando" o método "colorir" do objeto "lixeira" é chamado. O processamento deste é explicado em sua linha (na seção "Variáveis do jogo"). */
+                                }
+                    		} 
+
+                    		function movimento(evento) /* Essa função só ocorre quando o mouse é deslocado dentro da página e se "Tela_Atual" vale "telas.jogando". */ {
+                                if (Tela_Atual === telas.jogando) {
+                    			    mouseX = evento.clientX - contexto.canvas.offsetLeft;
+                    			    lixeira.movimentar();
+                                    /* A variável "MouseX* recebe a posição X do mouse do usuário menos a distância entre a margem esquerda da página e a canvas. Caso não houvesse essa subtração, haveria problemas quanto à posição da lixeira, pois ao invés de capturar a posição X do mouse em relação à canvas, seria capturada em relação à página. Por exemplo: se o mouse estivesse a 100 pixels de distância dentro da canvas, mas a canvas está a 300 pixels longe da margem esquerda, a lixeira estaria na posição 400 ao invés de 100 e, consequentemente, não apareceria no game. */
+                                } 
+                    		}
+
+                            function limpar() {
+                                contexto.clearRect(0, 0, LARGURA, ALTURA);
+                            } /* Essa função é chamada quando o jogador perde o jogo. Assim, a cada rodada, a tela é reiniciada.*/
+
+                    		function rodar() {
+                    			atualizar();
+                    			desenhar();
+
+                    			window.requestAnimationFrame(rodar); // Quando a tela requerir mais frames para processar, a função chamará a si mesma (loop infinito). Sem esse código, o jogo não carregaria as outras telas e muito menos os objetos. Caso queira testar, apaga esta linha e teste; mas depois escreva-a de volta.
+                    		}
+
+                    		function atualizar() {
+                    			frames++; // Simplesmente inclementa a variável frames por um.
+                    		}
+
+                    		function desenhar() {
+                    			// Objetos padrão
+	                    			// Céu → retângulo.
+                                        if (placar <= 10) {
+		                    			    contexto.fillStyle = "lightblue";
+		                    			    contexto.strokeStyle = "black";
+		                    			    contexto.fillRect(0, 0, LARGURA, ALTURA);
+                                            /* Se "placar" for menor ou igual a 30, o céu será azul claro.*/
+
+                                        } else if (placar > 10 && placar <= 20) {
+                                            contexto.fillStyle = "orange";
+                                            contexto.strokeStyle = "black";
+                                            contexto.fillRect(0, 0, LARGURA, ALTURA);
+                                            /* Se "placar" for maior que 30 e menor ou igual a 60, o céu será laranja (entardecendo).*/
+
+                                    } else if (placar > 20) {
+                                            contexto.fillStyle = "black";
+                                            contexto.strokeStyle = "black";
+                                            contexto.fillRect(0, 0, LARGURA, ALTURA);
+                                            /* Se "placar" for maior que 60, o céu será darkhaki (anoitecendo). A partir dessa parte, o jogo começa a ficar um pouco complicado.*/
+                                    }
+
+		                    		// Chão → retângulo.
+		                 				contexto.fillStyle = "limegreen";
+		                    			contexto.fillRect(0, ALTURA - 100, LARGURA, 100);
+		                    			contexto.strokeRect(0, ALTURA - 100, LARGURA, 100);
+
+		                    		// Sol → arco.
+		                    			contexto.beginPath();
+		                    			contexto.fillStyle = "yellow";
+		                    			contexto.arc(LARGURA - 500, ALTURA * 0, LARGURA - 450, 0, Math.PI, false);
+		                    			contexto.fill();
+		                    			contexto.stroke();
+		                    			contexto.closePath();
+
+		                    		// Nuvens → elipses (objeto "nuvens").
+		                    			// Primeira linha
+		                    			nuvens.desenhar(LARGURA - 350, ALTURA - 500);
+		                    			nuvens.desenhar(LARGURA - 200, ALTURA - 500);
+		                    			nuvens.desenhar(LARGURA - 50, ALTURA - 500);
+
+		                    			// Segunda linha
+		                    			nuvens.desenhar(LARGURA - 450, ALTURA - 400);
+		                    			nuvens.desenhar(LARGURA - 300, ALTURA - 400);
+		                    			nuvens.desenhar(LARGURA - 150, ALTURA - 400);
+		                    			nuvens.desenhar(LARGURA - 0, ALTURA - 400);
+
+		                    	// Objetos condicionais
+	                    			if (Tela_Atual === telas.jogar) /* Caso "Tela_Atual" vale "telas.jogar", um retângulo é desenhado no centro do game. Ele funciona como um botão de play/início. */ {
+	                    				// Botão de play
+	                    					contexto.beginPath();
+	                    					contexto.fillStyle = "blue";
+	                    					contexto.fillRect(LARGURA - 325, ALTURA - 325, LARGURA - 450, ALTURA - 450);
+	                    					contexto.strokeRect(LARGURA - 325, ALTURA - 325, LARGURA - 450, ALTURA - 450);
+	                    					contexto.closePath();
+
+	                    				// Texto do botão
+	                    					contexto.beginPath();
+	                    					contexto.fillStyle = "black";
+	                    					contexto.strokeStyle = "black";
+	                    					contexto.font = "20px fantasy";
+	                    					contexto.fillText("JOGAR", LARGURA - 300, ALTURA - 265);
+	                    					contexto.fill();
+	                    					contexto.stroke();
+	                    					contexto.closePath();
+
+	                    			} else if (Tela_Atual === telas.perdeu) /* Caso "Tela_Atual" vale "telas.perdeu", outro retângulo é desenhado no centro do game. Ele funciona como um botão de retry/reiniciar/tente novamente. */ {
+	                    				// Botão de retry
+	                    					contexto.beginPath();
+	                    					contexto.fillStyle = "yellow";
+	                    					contexto.fillRect(LARGURA - 325, ALTURA - 325, LARGURA - 450, ALTURA - 450);
+	                    					contexto.strokeRect(LARGURA - 325, ALTURA - 325, LARGURA - 450, ALTURA - 450);
+	                    					contexto.closePath();
+
+	                    				// Texto do botão
+	                    					contexto.beginPath();
+	                    					contexto.fillStyle = "black";
+	                    					contexto.strokeStyle = "black";
+	                    					contexto.font = "20px fantasy";
+	                    					contexto.fillText("FIM DE JOGO", LARGURA - 322, ALTURA - 290);
+	                    					contexto.fillText("PONTOS:", LARGURA - 322, ALTURA - 250);
+	                    					contexto.fillText(placar, LARGURA - 250, ALTURA - 250);
+	                    					contexto.fill();
+	                    					contexto.stroke();
+	                    					contexto.closePath();
+
+	                    			} else if (Tela_Atual === telas.jogando) /* Caso "Tela_Atual" vale "telas.jogando", a lixeira, os lixos, o placar e a vida são desenhados. Além dos métodos de atualizar a posição dos lixos e de inclementar as variáveis "vida" e "placar". */ {
+                                        // Lixeira
+	                    					lixeira.desenhar();
+                                            lixeira.inclementar();
+
+                                        //Lixos
+                                            lixos.desenhar_Bola_Azul();
+                                            lixos.desenhar_Bola_Verde();
+                                            lixos.desenhar_Bola_Vermelha();
+                                            lixos.desenhar_Bola_Amarela();
+                                            lixos.desenhar_Bola_Preta();
+
+                                        // Atualizar posição dos lixos
+                                            lixos.atualizar_posição();
+
+                                        // Placar
+                                            contexto.beginPath();
+                                            contexto.fillStyle = "green";
+                                            contexto.strokeStyle ="green";
+                                            contexto.fillText("PONTOS:", LARGURA - 120, ALTURA - 525);
+                                            contexto.fillText(placar, LARGURA - 50 ,ALTURA - 525);
+                                            contexto.closePath();
+
+                                        // Vidas
+                                            contexto.beginPath();
+                                            contexto.fillStyle = "red";
+                                            contexto.strokeStyle = "red";
+                                            contexto.fillText("VIDAS:", LARGURA - 120, ALTURA - 500);
+                                            contexto.fillText(vidas, LARGURA - 50, ALTURA - 500);
+                                            contexto.closePath();
+
+                                        // Vida extra
+                                            vida_extra.desenhar();
+                                            vida_extra.atualizar_posição();
+	                    			}
+	                    			
+                    		}
+
+                    	// Inicializar o jogo
+                    		iniciar(); // por incrível que pareça, o jogo só roda definitivamente no navegador, por causa desta única linha.
+                    </script>
+                    	
+                  	<br /> <br /> 
+                  	<hr width="100%" />
+                  	<br />
+                </div> <!-- CONTEÚDO ← -->
+
+                <div id="Créditos">COPYRIGHT<sup>&copy</sup> 2018 -- UNIP / ARAÇATUBA</div> <!-- CRÉDITOS -->
+  				
+   			</div> <!-- DIVISÓRIA RESPONSIVA 2 ← -->
+            
+		</div> <!-- DIVISÓRIA RESPONSIVA 1 ← -->
+        
+	</body>
+    
+</html>

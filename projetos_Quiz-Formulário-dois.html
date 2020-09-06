@@ -1,0 +1,104 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    
+    <meta charset="utf-8" />
+        <meta name="description" contet="Venha aprender sobre a reciclagem de maneira fácil e divertida. Disponibilizamos blogs e projetos (javascript e download docx) diversos. Toda semana um conteúdo novo." />
+        <meta name="author" content="Gabriel Felix dos Santos, Matheus Gustavo de Oliveira Santos e Matheus Augusto Lisboa Maruca" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+    <title>CONSCIÊNCIA DA NATUREZA</title>
+        
+    <link href="CSS/boilerplate.css" rel="stylesheet" type="text/css" /> <!-- CSS para responsividade -->
+    <link href="CSS/style-global.css" rel="stylesheet" type="text/css" /> <!-- CSS global -->
+    <link rel="stylesheet" type="text/css" href="CSS/style-projetos_Quiz.css" />
+    
+    <script src="JAVA/respond.min.js"></script> <!-- JAVA para responsividade -->
+      
+  </head>
+
+  <body>
+
+    <div class="gridContainer clearfix"> <!-- → DIVISÓRIA RESPONSIVA 1 -->
+        <div id="LayoutDiv1"> <!-- → DIVISÓRIA RESPONSIVA 2 -->
+            
+              <div id="Nome_do_Website"> <!-- → APRESENTAÇÃO -->
+                  <h1>Consciência da Natureza</h1>
+                    <h5><em>"Seus atos de hoje serão seu futuro de amanhã"</em></h5>
+                    
+                   <ul id="Menu">
+                        <li><a href="index.html">INÍCIO</a></li> <!-- A id "Está_Aqui" serve para identificar a página que está aberta. No css "style-global", a cor desse item é diferente dos demais, assim, o usuário saberá em qual página ele está. -->
+                        <li><a href="blogs.html">BLOGS</a></li>
+                        <li><a href="projetos.html" id="Está_Aqui">PROJETOS</a></li>
+                        <li><a href="sugestoes.html">SUGESTÕES</a></li>
+                        <li><a href="contato.html">CONTATO</a></li>
+                   </ul>
+                    
+                </div> <!-- APRESENTAÇÃO ← -->
+
+                <div id="Conteúdo"> <!-- → CONTEÚDO -->
+                  <br /> <br />
+                  <hr width="100%" />
+                  <br />
+                
+                  <form id="quiz" method="POST" action="projetos_Quiz-Formulário-um-Respostas.php">
+                    <label>1) Quantas lixeiras recicláveis existem? <br /> <br />
+                    <input class="posição" type="radio" name="pergunta_um" value="4" />4
+                    <input class="posição" type="radio" name="pergunta_um" value="5" />5
+                    <input class="posição" type="radio" name="pergunta_um" value="7" />7
+                    <input class="posição" type="radio" name="pergunta_um" value="10" />10 <br /> <br /> <br /></label>
+
+                    <label>2) Qual a cor da lixeira que deve-se descartar lixos constituídos de metal? <br /> <br />
+                      <input class="posição" type="list" list="opções_um" name="pergunta_dois" required /> <br /> <br /> <br />
+                        <datalist id="opções_um">
+                          <option>Vermelha</option>
+                          <option>Amarela</option>
+                          <option>Marrom</option>
+                          <option>Verde</option>
+                        </datalist>
+                    </label>
+
+                    <label>3) Qual a cor da lixeira que deve-se descartar lixos radioativos? <br /> <br />
+                      <input class="posição" type="list" list="opções_dois" name="pergunta_três" required /> <br /> <br /> <br />
+                        <datalist id="opções_dois">
+                          <option>Azul</option>
+                          <option>Branca</option>
+                          <option>Roxa</option>
+                          <option>Cinza</option>
+                        </datalist>
+                    </label>
+
+                    4) Sobre os três R's, quais são os outros dois, com excessão de Reciclar? <br /> <br />
+                    <input class="posição" type="radio" name="pergunta_quatro" value="Reciclar e Reduzir" />Reciclar e Reduzir
+                    <input class="posição" type="radio" name="pergunta_quatro" value="Reutilizar e Renovar" />Reutilizar e Renovar
+                    <input class="posição" type="radio" name="pergunta_quatro" value="Reduzir e Reutilizar" />Reduzir e Reutilizar
+                    <input class="posição" type="radio" name="pergunta_quatro" value="Reduzir e Repensar" />Repensar e Reduzir <br /> <br /> <br />
+
+                    <label>5) Qual órgão brasileiro é responsável por estabelecer leis ambientais federais?  <br /> <br />
+                      <input class="posição" type="list" list="opções_três" name="pergunta_cinco" required /> <br /> <br /> <br />
+                        <datalist id="opções_três">
+                          <option>FONAMA</option>
+                          <option>CONAMA</option>
+                          <option>KOGAMA</option>
+                          <option>ECO</option>
+                        </datalist>
+                    </label>
+
+                    <input id="botão" type="submit" value="Enviar" />
+                  </form>  
+                   
+                  <hr width="100%" />
+                  <br /> <br />
+                </div> <!-- CONTEÚDO ← -->
+                
+                <div id="Créditos">COPYRIGHT<sup>&copy</sup> 2018 -- UNIP / ARAÇATUBA</div> <!-- CRÉDITOS -->
+          
+        </div> <!-- DIVISÓRIA RESPONSIVA 2 ← -->
+            
+    </div> <!-- DIVISÓRIA RESPONSIVA 1 ← -->
+        
+  </body>
+    
+</html>

@@ -1,0 +1,971 @@
+@charset "utf-8";
+
+img, object, embed, video {
+	max-width: 100%;
+}
+
+.ie6 img {
+	width:100%;
+}
+
+/* Layout para celular: até 480px. */
+
+	.gridContainer {
+		margin-left: auto;
+		margin-right: auto;
+		width: 89.05%;
+		padding-left: 0.9749%;
+		padding-right: 0.9749%;
+	} /* A divisória responsiva 1 passui distância automática tanto da margem esquerda quanto da direita. Seu comprimento é de 89,05%, enquanto que seu espaçamento interior das bordas laterais é de aproximadamente 0,98%.*/
+	
+	#LayoutDiv1 {
+		clear: both;
+		float: left;
+		margin-left: 0;
+		width: 100%;
+		display: block;
+	} /* A divisória responsiva 2 aceita flutuação somente no lado esquerdo, sendo a distância dela em relação a este igual a 0%. Seu comprimento é de 100% da página, e sua exibição, em bloco.*/
+
+	.gridContainer {
+		width: 89.1964%;
+		max-width: 1232px;
+		padding-left: 0.4017%;
+		padding-right: 0.4017%;
+		margin: auto;
+	} /* Para valores mais aproximados, a divisória responsiva 1 tem 89,1964% de comprimento, sendo que funciona para telas de, no máximo, 1232px. Sue espaçamento interior das bordas laterais é de 0.4017%, e a entre as margens, automática.*/
+	
+	#LayoutDiv1 {
+		clear: both;
+		float: left;
+		margin-left: 0;
+		width: 100%;
+		display: block;
+	} /* A divisória responsiva 2 aceita flutuação somente no lado esquerdo, sendo a distância dela em relação a este igual a 0%. Seu comprimento é de 100% da página, e sua exibição, em bloco.*/
+	
+	body {
+		background-image: url('fundo.png');
+		background-repeat: no-repeat;
+		background-color: lightblue;
+	
+		font-family: cursive, serif;
+		text-align: justify;
+		font-weight: bolder;
+		color: black;
+	} /* Padrões de texto: fonte principal cursiva e secundária serif, alinhamento justificado, negrito bolder e cor preta.*/
+	
+	#Nome_do_Website {
+		text-align: center;
+	} /* O nome do web site é alinhado ao centro da página.*/
+	
+	#Nome_do_Website h1{
+		font-size: 30pt;
+	} /* O nome do web site tem fonte de 30 pontos (essa linha não foi escrita no código acima porque os itens do menu seriam afetados também).*/
+	
+	#Nome_do_Website h5{
+		font-size: 13pt;
+	} /* Já a frase de efeito, 13 pontos.*/
+	
+	#Nome_do_Website #Menu {
+		list-style: none;
+	} 
+
+	#Nome_do_Website #Menu li {
+		display: inline-block;
+		background-color: dodgerblue;
+		padding: 1.5%;
+
+		/* Os códigos abaixo são modificados ao item ser ativado (clicado)*/
+		background: linear-gradient(lightblue, dodgerblue);
+		box-shadow: 2px 2px 2px 2px black;
+		transition: box-shadow 0.3s ease, transform 0.3s ease, background 0.3s ease;
+	} 
+
+	#Nome_do_Website #Menu li a {
+		color: white;
+		display: inline-block;
+		text-decoration: none;
+	} 
+	
+	#Nome_do_Website #Menu li a:hover {
+		color: lightblue;
+	} 
+
+	#Nome_do_Website #Menu li:active {
+		background: radial-gradient(circle, dodgerblue, lightblue);
+		box-shadow: 0px 0px 0px 0px black, inset 2px 2px 2px 2px black;
+		transform: translate(5%, 5%);
+	} /* Ao ser ativado (clicado), a opção de menu terá seu fundo mudado para o gradiente radial na forma de círculo, 
+	tendo a cor "dodgerblue" em seu centro, e a "lightblue", em seu redor. Ademais, a borda da caixa é retirada e logo
+	em seguida recolocada para dentro; enquanto que a opção desliza 5% para a direita e para baixo. */
+	
+	#Nome_do_Website #Menu #Está_Aqui {
+		display: inline-block;
+		
+		color: darkblue;
+		padding: 1.5%;
+	} /* Funciona apenas para o item do menu que indica a página que está aberta.*/
+	
+	#Nome_do_Website #Menu #Está_Aqui:hover {
+		color: lightblue;
+	} /* Funciona apenas para o item do menu que indica a página que está aberta.*/
+	
+	canvas {
+		-webkit-animation: Aparecer_Canvas 2s linear;
+		-moz-animation: Aparecer_Canvas 2s linear;
+		animation: Aparecer_Canvas 2s linear;
+	} 
+
+	/* → A animação atribuída ao canvas simplesmente muda sua opacidade de zero para um.*/
+	@-webkit-keyframes Aparecer_Canvas {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /*Google Chrome, Opera e Safari.*/
+
+	@-moz-keyframes Aparecer_Canvas {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /*Mozila Firefox.*/
+
+	@keyframes Aparecer_Canvas {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /*Internet Explorer 9.0 e versões mais recentes.*/
+
+	/*Fim das animações dos canvas ←.*/
+
+	#Conteúdo {
+		background-color: #fffacd; /* A amarela "desbotado".*/
+		width: 100%;
+		margin-left: 10%;
+		margin-top: 0%;
+	}
+
+	#Conteúdo h3 {
+		width: 35%;
+		margin-left: 45%;
+		text-align: center;
+		border: 3px groove black;
+		background-color: white;
+		color: black;
+	} 
+
+	#Conteúdo h3 a {
+		color: black;
+	}
+
+	#Conteúdo h3 a:hover {
+		color: dodgerblue;
+	}
+	
+	#Conteúdo p {
+		font-size: 12pt;
+		text-indent: 3%; /* A primeira linha, e somente a primeira, de cada parágrafo possui uma distância da margem esquerda da página 3% maior.*/
+		width: 96%;
+		margin-left: 2%;
+	} 
+	
+	#Conteúdo #Retornar {
+		margin-top: -30%;
+		width: 8%;
+		border: none;
+		-webkit-animation: Mover 1s linear infinite alternate;
+		-moz-animation: Mover 1s linear infinite alternate;
+		animation: Mover 1s linear infinite alternate;
+	} /* Esta imagem é adicionada somente às páginas internas de blogs. Ela serve para que o usuário volte para a página principal ("blogs.html", "projetos.html" ou "contato.html").
+	
+	/* → As seguintes animações simplesmente modificam a distância da imagem #Retornar em relação a margem esquerda de 0% a 2%.*/
+	
+	@-webkit-keyframes Mover {
+		from {margin-left: 0%;}
+		to {margin-left: 2%;}	
+	} /*Animação para Google Chrome, Opera e Safari.*/
+	
+	@-moz-keyframes Mover {
+		from {margin-left: 0%;}
+		to {margin-left: 2%;}	
+	} /*Animação para Mozila Firefox.*/
+	
+	@keyframes {
+		from {margin-left: 0%;}
+		to {margin-left: 2%;}	
+	} /*Animação para Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações de #Retornar ← .*/
+	
+	#Conteúdo img {
+		margin-left: 25%;
+		border: 3px solid black;
+		-webkit-animation: Aparecer_Imagens 2s linear;
+		-moz-animation: Aparecer_Imagens 2s linear;
+		animation: Aparecer_Imagens 2s linear;
+	} 
+	
+	/* As seguintes animações modificam a opacidade das imagens contidas na divisória #Conteúdo de 0 para 1.*/
+	
+	@-webkit-keyframes Aparecer_Imagens {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Animação para Google Chrome, Opera e Safari.*/
+	
+	@-moz-keyframes Aparecer_Imagens {
+		from {opacity: 0;}/
+		to {opacity: 1;}	
+	} /* Animação para Mozila Firefox.*/
+	
+	@keyframes Aparecer_Imagens {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Animação para Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações das imagens contidas na divisória #Conteúdo ←. */
+	
+	#Conteúdo .Imagem_Secundária {
+		margin-left: 5%;
+	} /* As imagens secundárias encontram-se a 30% de distância da margem esquerda (25% das imagens comuns + 5% das secundárias). Essas imagens estão contidas apenas
+	na "index.html", identificando as imagens do lado direito da página.*/
+
+	#Conteúdo table {
+		margin-left: 10%;
+		width: 80%;
+		background-color: steelblue;
+	} 
+	
+	#Conteúdo table tr td {
+		width: 30%;
+		border: 3px solid black;
+	} /*Cada coluna tem 30% de comprimento do da tabela e borda sólida preta de 3 pixels de largura.*/
+
+	#Conteúdo table tr td h4 {
+		text-align: center;
+		text-decoration: underline;
+		-webkit-animation: Aparecer_Letras 2s linear;
+		-moz-animation: Aparecer_Letras 2s linear;
+		animation: Aparecer_Letras 2s linear;
+	} /* Esses códigos servem apenas para as tags h4 pertencentes às tabelas. Elas foram usadas para nomear blogs e projetos, portanto, encontram-se acima das imagens das 
+	próprias tabelas.*/
+
+	/* → A opacidade das letras de "h4" pertencentes às tabelas modifica-se de 0 para 1.*/
+
+	@-webkit-keyframes Aparecer_Letras {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /* Google Chrome, Opera e Safari.*/
+	
+	@-moz-keyframes Aparecer_Letras {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Mozila Firefox.*/
+	
+	@keyframes Aparecer_Letras {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações ← .*/
+
+	#Conteúdo table tr td img {
+		margin-top: 0%;
+		margin-left: 10%;	
+		-webkit-animation: Aparecer_Imagens_Tabelas 2s linear;
+		-moz-animation: Aparecer_Imagens_Tabelas 2s linear;
+		animation: Aparecer_Imagens_Tabelas 2s linear;
+	} /* Esses códigos servem apenas para as imagens contidas nas tabelas.*/ 
+	
+	/* → Do mesmo modo que as letras "h4" das tabelas, a opacidade das imagens mudará de 0 para 1.*/
+	
+	@-webkit-keyframes Aparecer_Imagens_Tabelas {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Google Chrome, Opera e Safari. */
+	
+	@-moz-keyframes Aparecer_Imagens_Tabelas {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /* Mozila Firefox.*/ 
+	
+	@keyframes Aparecer_Imagens_Tabelas {
+		from{opacity: 0;}
+		to{opacity: 1;}
+	} /* Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações ← . */
+	
+	#Conteúdo table tr td img:hover {
+		cursor: pointer;
+		border: 3px solid blue;
+	} 
+	
+	#Conteúdo button {
+		margin-left: 45%;
+		font-family: cursive;
+		background-color: white;
+		border: 3px solid black;
+		border-raidus: 5px;
+		
+		cursor: pointer;
+		
+		text-shadow: 1px 1px 1px black;
+		box-shadow: 1px 1px 1px 1px black;
+		
+		transition: box-shadow 0.3s ease, transform 0.5s ease;
+	} /* As tags "text-shadow" e "box-shadow" foram escritas para que um efeito 3D fosse obtido ao botão ser pressionado. A explicação de tal efeito é dada no código abaixo.*/
+	
+	#Conteúdo button:active {
+		background-color: lightblue;
+		box-shadow: 0px 0px 0px 0px black, inset 2px 2px 2px 3px black;
+		transform: translate(5%, 5%);	
+	} /* Ao clicar em qualquer botão, a sombra da caixa é retirada e após 0,3 segundos recolocada no sentido oposto. Assim, parecerá que o botão afundou e foi tomado pela
+	sombra. Também, suas posições X e Y são transformadas em 5% para a direita e baixo, dando a impressão de que o botão foi deslizado. Resumindo, o efeito 3D faz com que
+	o botão pareça ser afundado e deslizado.*/
+
+	#Créditos {
+		background-color: black;
+		color: ghostwhite;
+		text-align: center;
+
+		margin-left: -6%;
+		width: 123%;
+	}
+
+/* Layout de tablet: 481px até 768px. Seu estilo é herdado do do celular. */
+
+@media only screen and (min-width: 481px) {
+	.gridContainer {
+		width: 91.7544%;
+		padding-left: 0.6227%;
+		padding-right: 0.6227%;
+	} /* A divisória responsiva 1 possui comprimento de aproximadamente 91,8%, sendo seu espaçamento interior das bordas laterais igual a 0,62% (tambe´m aproximadamente).*/
+	
+	#LayoutDiv1 {
+		clear: both;
+		float: left;
+		margin-left: 0;
+		width: 100%;
+		display: block;
+	} /* A divisória responsiva 2 aceita flutuação somente no lado esquerdo, sendo a distância dela em relação a este igual a 0%. Seu comprimento é de 100% da página, e sua exibição, em bloco.*/
+
+	.gridContainer {
+		width: 89.1964%;
+		max-width: 1232px;
+		padding-left: 0.4017%;
+		padding-right: 0.4017%;
+		margin: auto;
+	} /* Para valores mais aproximados, a divisória responsiva 1 tem 89,1964% de comprimento, sendo que funciona para telas de, no máximo, 1232px. Sue espaçamento interior das bordas laterais é de 0.4017%, e a entre as margens, automática.*/
+	
+	#LayoutDiv1 {
+		clear: both;
+		float: left;
+		margin-left: 0;
+		width: 100%;
+		display: block;
+	} /* A divisória responsiva 2 aceita flutuação somente no lado esquerdo, sendo a distância dela em relação a este igual a 0%. Seu comprimento é de 100% da página, e sua exibição, em bloco.*/
+	
+	body {
+		background-image: url('fundo.png');
+		background-repeat: no-repeat;
+		background-color: lightblue;
+	
+		font-family: cursive, serif;
+		text-align: justify;
+		font-weight: bolder;
+		color: black;
+	} /* Padrões de texto: fonte principal cursiva e secundária serif, alinhamento justificado, negrito bolder e cor preta.*/
+	
+	#Nome_do_Website {
+		text-align: center;
+	} /* O nome do web site é alinhado ao centro da página.*/
+	
+	#Nome_do_Website h1{
+		font-size: 30pt;
+	} /* O nome do web site tem fonte de 30 pontos (essa linha não foi escrita no código acima porque os itens do menu seriam afetados também).*/
+	
+	#Nome_do_Website h5{
+		font-size: 13pt;
+	} /* Já a frase de efeito, 13 pontos.*/
+	
+	#Nome_do_Website #Menu {
+		list-style: none;
+	} 
+
+	#Nome_do_Website #Menu li {
+		display: inline-block;
+		background-color: dodgerblue;
+		padding: 1.5%;
+
+		/* Os códigos abaixo são modificados ao item ser ativado (clicado)*/
+		background: linear-gradient(lightblue, dodgerblue);
+		box-shadow: 2px 2px 2px 2px black;
+		transition: box-shadow 0.3s ease, transform 0.3s ease, background 0.3s ease;
+	} 
+
+	#Nome_do_Website #Menu li a {
+		color: white;
+		display: inline-block;
+		text-decoration: none;
+	} 
+	
+	#Nome_do_Website #Menu li a:hover {
+		color: lightblue;
+	} 
+
+	#Nome_do_Website #Menu li:active {
+		background: radial-gradient(circle, dodgerblue, lightblue);
+		box-shadow: 0px 0px 0px 0px black, inset 2px 2px 2px 2px black;
+		transform: translate(5%, 5%);
+	} /* Ao ser ativado (clicado), a opção de menu terá seu fundo mudado para o gradiente radial na forma de círculo, 
+	tendo a cor "dodgerblue" em seu centro, e a "lightblue", em seu redor. Ademais, a borda da caixa é retirada e logo
+	em seguida recolocada para dentro; enquanto que a opção desliza 5% para a direita e para baixo. */
+	
+	#Nome_do_Website #Menu #Está_Aqui {
+		display: inline-block;
+		
+		color: darkblue;
+		padding: 1.5%;
+	} /* Funciona apenas para o item do menu que indica a página que está aberta.*/
+	
+	#Nome_do_Website #Menu #Está_Aqui:hover {
+		color: lightblue;
+	} /* Funciona apenas para o item do menu que indica a página que está aberta.*/
+	
+	canvas {
+		-webkit-animation: Aparecer_Canvas 2s linear;
+		-moz-animation: Aparecer_Canvas 2s linear;
+		animation: Aparecer_Canvas 2s linear;
+	} 
+
+	/* → A animação atribuída ao canvas simplesmente muda sua opacidade de zero para um.*/
+	@-webkit-keyframes Aparecer_Canvas {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /*Google Chrome, Opera e Safari.*/
+
+	@-moz-keyframes Aparecer_Canvas {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /*Mozila Firefox.*/
+
+	@keyframes Aparecer_Canvas {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /*Internet Explorer 9.0 e versões mais recentes.*/
+
+	/*Fim das animações dos canvas ←.*/
+
+	#Conteúdo {
+		background-color: #fffacd; /* A amarela "desbotado".*/
+		width: 100%;
+		margin-left: 13%;
+		margin-top: 0%;
+	}
+
+	#Conteúdo h3 {
+		width: 33%;
+		margin-left: 45%;
+		text-align: center;
+		border: 3px groove black;
+		background-color: white;
+		color: black;
+	} 
+
+	#Conteúdo h3 a {
+		color: black;
+	}
+
+	#Conteúdo h3 a:hover {
+		color: dodgerblue;
+	}
+	
+	#Conteúdo p {
+		font-size: 12pt;
+		text-indent: 3%; /* A primeira linha, e somente a primeira, de cada parágrafo possui uma distância da margem esquerda da página 3% maior.*/
+		width: 96%;
+		margin-left: 2%;
+	} 
+	
+	#Conteúdo #Retornar {
+		margin-top: -25%;
+		margin-left: 0%;
+		border: none;
+		-webkit-animation: Mover 1s linear infinite alternate;
+		-moz-animation: Mover 1s linear infinite alternate;
+		animation: Mover 1s linear infinite alternate;
+	} /* Esta imagem é adicionada somente às páginas internas de blogs. Ela serve para que o usuário volte para a página principal ("blogs.html", "projetos.html" ou "contato.html").
+	
+	/* → As seguintes animações simplesmente modificam a distância da imagem #Retornar em relação a margem esquerda de 0% a 2%.*/
+	
+	@-webkit-keyframes Mover {
+		from {margin-left: 0%;}
+		to {margin-left: 2%;}	
+	} /*Animação para Google Chrome, Opera e Safari.*/
+	
+	@-moz-keyframes Mover {
+		from {margin-left: 0%;}
+		to {margin-left: 2%;}	
+	} /*Animação para Mozila Firefox.*/
+	
+	@keyframes {
+		from {margin-left: 0%;}
+		to {margin-left: 2%;}	
+	} /*Animação para Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações de #Retornar ← .*/
+	
+	#Conteúdo img {
+		margin-left: 25%;
+		border: 3px solid black;
+		-webkit-animation: Aparecer_Imagens 2s linear;
+		-moz-animation: Aparecer_Imagens 2s linear;
+		animation: Aparecer_Imagens 2s linear;
+	} 
+	
+	/* As seguintes animações modificam a opacidade das imagens contidas na divisória #Conteúdo de 0 para 1.*/
+	
+	@-webkit-keyframes Aparecer_Imagens {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Animação para Google Chrome, Opera e Safari.*/
+	
+	@-moz-keyframes Aparecer_Imagens {
+		from {opacity: 0;}/
+		to {opacity: 1;}	
+	} /* Animação para Mozila Firefox.*/
+	
+	@keyframes Aparecer_Imagens {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Animação para Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações das imagens contidas na divisória #Conteúdo ←. */
+	
+	#Conteúdo .Imagem_Secundária {
+		margin-left: 5%;
+	} /* As imagens secundárias encontram-se a 30% de distância da margem esquerda (25% das imagens comuns + 5% das secundárias). Essas imagens estão contidas apenas
+	na "index.html", identificando as imagens do lado direito da página.*/
+
+	#Conteúdo table {
+		margin-left: 10%;
+		width: 80%;
+		background-color: steelblue;
+	} 
+	
+	#Conteúdo table tr td {
+		width: 30%;
+		border: 3px solid black;
+	} /*Cada coluna tem 30% de comprimento do da tabela e borda sólida preta de 3 pixels de largura.*/
+
+	#Conteúdo table tr td h4 {
+		text-align: center;
+		text-decoration: underline;
+		-webkit-animation: Aparecer_Letras 2s linear;
+		-moz-animation: Aparecer_Letras 2s linear;
+		animation: Aparecer_Letras 2s linear;
+	} /* Esses códigos servem apenas para as tags h4 pertencentes às tabelas. Elas foram usadas para nomear blogs e projetos, portanto, encontram-se acima das imagens das 
+	próprias tabelas.*/
+
+	/* → A opacidade das letras de "h4" pertencentes às tabelas modifica-se de 0 para 1.*/
+
+	@-webkit-keyframes Aparecer_Letras {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /* Google Chrome, Opera e Safari.*/
+	
+	@-moz-keyframes Aparecer_Letras {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Mozila Firefox.*/
+	
+	@keyframes Aparecer_Letras {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações ← .*/
+
+	#Conteúdo table tr td img {
+		margin-top: 0%;
+		margin-left: 10%;	
+		-webkit-animation: Aparecer_Imagens_Tabelas 2s linear;
+		-moz-animation: Aparecer_Imagens_Tabelas 2s linear;
+		animation: Aparecer_Imagens_Tabelas 2s linear;
+	} /* Esses códigos servem apenas para as imagens contidas nas tabelas.*/ 
+	
+	/* → Do mesmo modo que as letras "h4" das tabelas, a opacidade das imagens mudará de 0 para 1.*/
+	
+	@-webkit-keyframes Aparecer_Imagens_Tabelas {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Google Chrome, Opera e Safari. */
+	
+	@-moz-keyframes Aparecer_Imagens_Tabelas {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /* Mozila Firefox.*/ 
+	
+	@keyframes Aparecer_Imagens_Tabelas {
+		from{opacity: 0;}
+		to{opacity: 1;}
+	} /* Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações ← . */
+	
+	#Conteúdo table tr td img:hover {
+		cursor: pointer;
+		border: 3px solid blue;
+	} 
+	
+	#Conteúdo button {
+		margin-left: 45%;
+		font-family: cursive;
+		background-color: white;
+		border: 3px solid black;
+		border-raidus: 5px;
+		
+		cursor: pointer;
+		
+		text-shadow: 1px 1px 1px black;
+		box-shadow: 1px 1px 1px 1px black;
+		
+		transition: box-shadow 0.3s ease, transform 0.5s ease;
+	} /* As tags "text-shadow" e "box-shadow" foram escritas para que um efeito 3D fosse obtido ao botão ser pressionado. A explicação de tal efeito é dada no código abaixo.*/
+	
+	#Conteúdo button:active {
+		background-color: lightblue;
+		box-shadow: 0px 0px 0px 0px black, inset 2px 2px 2px 3px black;
+		transform: translate(5%, 5%);	
+	} /* Ao clicar em qualquer botão, a sombra da caixa é retirada e após 0,3 segundos recolocada no sentido oposto. Assim, parecerá que o botão afundou e foi tomado pela
+	sombra. Também, suas posições X e Y são transformadas em 5% para a direita e baixo, dando a impressão de que o botão foi deslizado. Resumindo, o efeito 3D faz com que
+	o botão pareça ser afundado e deslizado.*/
+
+	#Créditos {
+		background-color: black;
+		color: ghostwhite;
+		text-align: center;
+
+		margin-left: -6%;
+		width: 123%;
+	}
+
+} /* Funciona somente em telas de, no mínimo, 481px.*/
+
+/* Layout para computador: 769px até 1232px. Seu estilo é herdado do do tablet e do celular. */
+
+@media only screen and (min-width: 769px) {
+	.gridContainer {
+		width: 89.1964%;
+		max-width: 1232px;
+		padding-left: 0.4017%;
+		padding-right: 0.4017%;
+		margin: auto;
+	} /* A divisória responsiva 1 possui comprimento de aproximadamente 89,2%, sendo permitido uma tela de, no máximo, 1232px. 
+	Seu espaçamento interior das bordas laterais é de 0,4017%, e da margem, automática.*/
+	
+	#LayoutDiv1 {
+		clear: both;
+		float: left;
+		margin-left: 0;
+		width: 100%;
+		display: block;
+	} /* A divisória responsiva 2 aceita flutuação somente no lado esquerdo, sendo a distância dela em relação a este igual a 0%. 
+	Seu comprimento é de 100% da página, e sua exibição, em bloco.*/
+	
+	body {
+		background-image: url('fundo.png');
+		background-repeat: no-repeat;
+		background-color: lightblue;
+	
+		font-family: cursive, serif;
+		text-align: justify;
+		
+		color: black;
+	} /* Padrões de texto: fonte principal cursiva e secundária serif, alinhamento justificado, negrito bolder e cor preta.*/
+	
+	#Nome_do_Website {
+		text-align: center;
+		margin-left: 10%;
+	} /* O nome do web site é alinhado ao centro da página.*/
+	
+	#Nome_do_Website h1{
+		font-size: 30pt;
+	} /* O nome do web site tem fonte de 30 pontos (essa linha não foi escrita no código acima porque os itens do menu seriam afetados também).*/
+	
+	#Nome_do_Website h5{
+		font-size: 13pt;
+	} /* Já a frase de efeito, 13 pontos.*/
+	
+	#Nome_do_Website #Menu {
+		list-style: none;
+	} 
+	
+	#Nome_do_Website #Menu li {
+		display: inline-block;
+		background-color: dodgerblue;
+		padding: 1.5%;
+
+		/* Os códigos abaixo são modificados ao item ser ativado (clicado)*/
+		background: linear-gradient(lightblue, dodgerblue);
+		box-shadow: 2px 2px 2px 2px black;
+		transition: box-shadow 0.3s ease, transform 0.3s ease, background 0.3s ease;
+	} 
+
+	#Nome_do_Website #Menu li a {
+		color: white;
+		display: inline-block;
+		text-decoration: none;
+	} 
+	
+	#Nome_do_Website #Menu li a:hover {
+		color: lightblue;
+	} 
+	
+	#Nome_do_Website #Menu li:active {
+		background: radial-gradient(circle, dodgerblue, lightblue);
+		box-shadow: 0px 0px 0px 0px black, inset 2px 2px 2px 2px black;
+		transform: translate(5%, 5%);
+	} /* Ao ser ativado (clicado), a opção de menu terá seu fundo mudado para o gradiente radial na forma de círculo, 
+	tendo a cor "dodgerblue" em seu centro, e a "lightblue", em seu redor. Ademais, a borda da caixa é retirada e logo
+	em seguida recolocada para dentro; enquanto que a opção desliza 5% para a direita e para baixo. */
+	
+	#Nome_do_Website #Menu #Está_Aqui {
+		display: inline-block;
+		
+		color: darkblue;
+		padding: 1.5%;
+	} /* Funciona apenas para o item do menu que indica a página que está aberta.*/
+	
+	#Nome_do_Website #Menu #Está_Aqui:hover {
+		color: lightblue;
+	} /* Funciona apenas para o item do menu que indica a página que está aberta.*/
+	
+	canvas {
+		-webkit-animation: Aparecer_Canvas 2s linear;
+		-moz-animation: Aparecer_Canvas 2s linear;
+		animation: Aparecer_Canvas 2s linear;
+	} 
+
+	/* → A animação atribuída ao canvas simplesmente muda sua opacidade de zero para um.*/
+	@-webkit-keyframes Aparecer_Canvas {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /*Google Chrome, Opera e Safari.*/
+
+	@-moz-keyframes Aparecer_Canvas {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /*Mozila Firefox.*/
+
+	@keyframes Aparecer_Canvas {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /*Internet Explorer 9.0 e versões mais recentes.*/
+
+	/*Fim das animações dos canvas ←.*/
+
+	#Conteúdo {
+		background-color: #fffacd; /* A amarela "desbotado".*/
+		width: 80%;
+		margin-left: 17%;
+		margin-top: 0%;
+	}
+	
+	#Conteúdo h3 {
+		width: 15%;
+		margin-left: 45%;
+		text-align: center;
+		border: 3px groove black;
+		background-color: white;
+		color: black;
+	} 
+
+	#Conteúdo h3 a {
+		color: black;
+	}
+
+	#Conteúdo h3 a:hover {
+		color: dodgerblue;
+	}
+	
+	#Conteúdo p {
+		font-size: 12pt;
+		text-indent: 3%; /* A primeira linha, e somente a primeira, de cada parágrafo possui uma distância da margem esquerda da página 3% maior.*/
+		width: 96%;
+		margin-left: 2%;
+	} 
+	
+	#Conteúdo p::selection {
+		background-color: dodgerblue;
+		color: white;
+	} /* Quando algum parágrafo é selecionado, seu fundo é preenchido pela cor "dodgerblue", enquanto que suas letras,
+	pela branca.*/
+	
+	#Conteúdo #Retornar {
+		margin-top: -10%;
+		margin-left: 0%;
+		width: 4%;
+		border: none;
+		-webkit-animation: Mover 1s linear infinite alternate;
+		-moz-animation: Mover 1s linear infinite alternate;
+		animation: Mover 1s linear infinite alternate;
+	} /* Esta imagem é adicionada somente às páginas internas de blogs. Ela serve para que o usuário volte para a página principal ("blogs.html", "projetos.html" ou "contato.html").
+	
+	/* → As seguintes animações simplesmente modificam a distância da imagem #Retornar em relação a margem esquerda de 0% a 2%.*/
+	
+	@-webkit-keyframes Mover {
+		from {margin-left: 0%;}
+		to {margin-left: 2%;}	
+	} /*Animação para Google Chrome, Opera e Safari.*/
+	
+	@-moz-keyframes Mover {
+		from {margin-left: 0%;}
+		to {margin-left: 2%;}	
+	} /*Animação para Mozila Firefox.*/
+	
+	@keyframes {
+		from {margin-left: 0%;}
+		to {margin-left: 2%;}	
+	} /*Animação para Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações de #Retornar ← .*/
+	
+	#Conteúdo img {
+		margin-left: 25%;
+		border: 3px solid black;
+		-webkit-animation: Aparecer_Imagens 2s linear;
+		-moz-animation: Aparecer_Imagens 2s linear;
+		animation: Aparecer_Imagens 2s linear;
+	} 
+	
+	/* As seguintes animações modificam a opacidade das imagens contidas na divisória #Conteúdo de 0 para 1.*/
+	
+	@-webkit-keyframes Aparecer_Imagens {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Animação para Google Chrome, Opera e Safari.*/
+	
+	@-moz-keyframes Aparecer_Imagens {
+		from {opacity: 0;}/
+		to {opacity: 1;}	
+	} /* Animação para Mozila Firefox.*/
+	
+	@keyframes Aparecer_Imagens {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Animação para Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações das imagens contidas na divisória #Conteúdo ←. */
+	
+	#Conteúdo .Imagem_Secundária {
+		margin-left: 5%;
+	} /* As imagens secundárias encontram-se a 30% de distância da margem esquerda (25% das imagens comuns + 5% das secundárias). Essas imagens estão contidas apenas
+	na "index.html", identificando as imagens do lado direito da página.*/
+
+	#Conteúdo table {
+		margin-left: 10%;
+		width: 80%;
+		background-color: steelblue;
+	} 
+	
+	#Conteúdo table tr td {
+		width: 30%;
+		border: 3px solid black;
+	} /*Cada coluna tem 30% de comprimento do da tabela e borda sólida preta de 3 pixels de largura.*/
+
+	#Conteúdo table tr td h4 {
+		text-align: center;
+		text-decoration: underline;
+		-webkit-animation: Aparecer_Letras 2s linear;
+		-moz-animation: Aparecer_Letras 2s linear;
+		animation: Aparecer_Letras 2s linear;
+	} /* Esses códigos servem apenas para as tags h4 pertencentes às tabelas. Elas foram usadas para nomear blogs e projetos, portanto, encontram-se acima das imagens das 
+	próprias tabelas.*/
+
+	/* → A opacidade das letras de "h4" pertencentes às tabelas modifica-se de 0 para 1.*/
+
+	@-webkit-keyframes Aparecer_Letras {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /* Google Chrome, Opera e Safari.*/
+	
+	@-moz-keyframes Aparecer_Letras {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Mozila Firefox.*/
+	
+	@keyframes Aparecer_Letras {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações ← .*/
+
+	#Conteúdo table tr td img {
+		margin-top: 0%;
+		margin-left: 10%;	
+		-webkit-animation: Aparecer_Imagens_Tabelas 2s linear;
+		-moz-animation: Aparecer_Imagens_Tabelas 2s linear;
+		animation: Aparecer_Imagens_Tabelas 2s linear;
+	} /* Esses códigos servem apenas para as imagens contidas nas tabelas.*/ 
+	
+	/* → Do mesmo modo que as letras "h4" das tabelas, a opacidade das imagens mudará de 0 para 1.*/
+	
+	@-webkit-keyframes Aparecer_Imagens_Tabelas {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Google Chrome, Opera e Safari. */
+	
+	@-moz-keyframes Aparecer_Imagens_Tabelas {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	} /* Mozila Firefox.*/ 
+	
+	@keyframes Aparecer_Imagens_Tabelas {
+		from{opacity: 0;}
+		to{opacity: 1;}
+	} /* Internet Explorer 9.0 e versões mais recentes.*/
+	
+	/* Fim das animações ← . */
+	
+	#Conteúdo table tr td img:hover {
+		cursor: pointer;
+		border: 3px solid blue;
+	} 
+	
+	#Conteúdo button {
+		margin-left: 45%;
+		font-family: cursive;
+		background-color: white;
+		border: 3px solid black;
+		border-raidus: 5px;
+		
+		cursor: pointer;
+		
+		text-shadow: 1px 1px 1px black;
+		box-shadow: 1px 1px 1px 1px black;
+		
+		transition: box-shadow 0.3s ease, transform 0.5s ease;
+	} /* As tags "text-shadow" e "box-shadow" foram escritas para que um efeito 3D fosse obtido ao botão ser pressionado. A explicação de tal efeito é dada no código abaixo.*/
+	
+	#Conteúdo button:active {
+		background-color: lightblue;
+		box-shadow: 0px 0px 0px 0px black, inset 2px 2px 2px 3px black;
+		transform: translate(5%, 5%);	
+	} /* Ao clicar em qualquer botão, a sombra da caixa é retirada e após 0,3 segundos recolocada no sentido oposto. Assim, parecerá que o botão afundou e foi tomado pela
+	sombra. Também, suas posições X e Y são transformadas em 5% para a direita e baixo, dando a impressão de que o botão foi deslizado. Resumindo, o efeito 3D faz com que
+	o botão pareça ser afundado e deslizado.*/
+
+	#Créditos {
+		background-color: black;
+		color: ghostwhite;
+		text-align: center;
+
+		margin-left: -6%;
+		width: 112%;
+
+		-moz-animation: correção_bug 1s linear infinite;
+	}
+
+	@-moz-keyframes correção_bug {
+		from{opacity: 0;}
+		to{opacity: 0;}
+	}
+
+} /* Funciona em telas de, no mínimo, 769px.*/

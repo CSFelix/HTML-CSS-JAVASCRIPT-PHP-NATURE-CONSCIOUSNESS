@@ -1,0 +1,438 @@
+@charset "utf-8";
+
+	/* Definições de exibição HTML */
+
+	article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { 
+		display: block; 
+	}
+	
+	audio, canvas, video { 
+		display: inline-block; 
+		*display: inline; 
+		*zoom: 1; 
+	}
+	
+	audio:not([controls]) { 
+		display: none; 
+	}
+	[hidden] { 
+		display: none; 
+	}
+
+	/* Base 
+		1. Corrigir o redimensionamento de texto de maneira estranha no IE6 / 7 quando o tamanho da fonte do corpo é definido usando unidades em;
+		2. Force a barra de rolagem vertical em não-IE;
+		3. Evitar que o tamanho do texto do iOS seja ajustado na alteração da orientação do dispositivo, sem desabilitar o zoom do usuário: h5bp.com/g;
+		4. Remover a sombra de texto no destaque da seleção: h5bp.com/i.
+	*/
+
+	html { 
+		font-size: 100%; 
+		overflow-y: scroll; 
+		-webkit-text-size-adjust: 100%;
+		-ms-text-size-adjust: 100%; 
+	}
+
+	body {
+		margin: 0;
+		font-size: 13px; 
+		line-height: 1.231;
+	}
+
+	body, button, input, select, textarea { 
+		font-family: sans-serif;
+	 	color: #222; 
+	 }
+
+	/* Links e Âncoras */
+	a { 
+		color: #00e; 
+	}
+	a:visited { 
+		color: #551a8b; 
+	}
+	
+	a:hover { 
+		color: #06e; 
+	}
+	
+	a:focus { 
+		outline: thin dotted; 
+	}
+
+	/* Capacidade de leitura quando focado e pairado em todos os navegadores: h5bp.com/h  */
+	a:hover, a:active { 
+		outline: 0; 
+	}
+
+	/* Tipografia */
+
+	abbr[title] { 
+		border-bottom: 1px dotted; 
+	}
+
+	b, strong { 
+		font-weight: bold; 
+	}
+	
+	blockquote { 
+		margin: 1em 40px; 
+	}
+	
+	dfn { 
+		font-style: italic; 
+	}
+	
+	hr { 
+		display: block; 
+		height: 1px; 
+		border: 0; 
+		border-top: 1px solid #ccc; 
+		margin: 1em 0; 
+		padding: 0; 
+	}
+	
+	ins { 
+		background: #ff9; 
+		color: #000; 
+		text-decoration: none; 
+	}
+	
+	mark { 
+		background: #ff0; 
+		color: #000; 
+		font-style: italic; 
+		font-weight: bold; 
+	}
+
+	/* Redeclaração da fonte monospace */
+	pre, code, kbd, samp { 
+		font-family: monospace, monospace; 
+		_font-family: 'courier new', monospace; 
+		font-size: 1em; 
+	}
+
+	/* Melhore a legibilidade do texto pré-formatado em todos os navegadores */
+	pre {
+		 white-space: pre; 
+		 white-space: pre-wrap;
+		 word-wrap: break-word; 
+	}
+	
+	q { 
+		quotes: none; 
+	}
+	
+	q:before, q:after { 
+		content: ""; 
+		content: none; 
+	}
+	
+	small { 
+		font-size: 85%; 
+	}
+
+	/* Posicione o índice subscrito e sobrescrito sem afetar a altura da linha: h5bp.com/k */
+	sub, sup { 
+		font-size: 75%; 
+		line-height: 0; 
+		position: relative; 
+		vertical-align: baseline; 
+	}
+	
+	sup { 
+		top: -0.5em; 
+	}
+	
+	sub { 
+		bottom: -0.25em; 
+	}
+
+	/* Listas */
+
+	ul, ol { 
+		margin: 1em 0; 
+		padding: 0 0 0 40px; 
+	}
+	
+	dd {
+		 margin: 0 0 0 40px; 
+	}
+	
+	nav ul, nav ol { 
+		list-style: none; 
+		list-style-image: none; 
+		margin: 0; 
+		padding: 0; 
+	}
+
+	/* Conteúdo incorporado
+		1. Melhore a qualidade da imagem quando dimensionada no IE7: h5bp.com/d
+	  	2. Remova a lacuna entre as imagens e as bordas dos contêineres de imagens: h5bp.com/e
+	*/
+
+	img { 
+		border: 0; 
+		-ms-interpolation-mode: bicubic; 
+		vertical-align: middle; 
+	}
+
+  /* Overflow correto não oculto no IE9 */
+ 
+	svg:not(:root) { 
+		overflow: hidden; 
+	}
+
+	/* Figuras */
+
+	figure { 
+		margin: 0; 
+	}
+
+	/* Formulários */
+
+	form { 
+		margin: 0; 
+	}
+	
+	fieldset { 
+		border: 0; 
+		margin: 0; 
+		padding: 0; 
+	}
+
+	/* Indique que o "label" mudará o foco para o elemento de formulário associado*/
+	label { 
+		cursor: pointer; 
+	}
+
+
+ 	/*	
+ 		1. cor correta não herdando no IE6 / 7/8/9
+  		2. Alinhamento correto exibido de forma estranha no IE6 / 7
+ 	*/
+
+	legend { 
+		border: 0; 
+		*margin-left: -7px; 
+		padding: 0; 
+	}
+
+	/*
+ 		1. Corrija o tamanho da fonte que não herda em todos os navegadores
+  		2. Remover margens no FF3 / 4 S5 Chrome
+  		3. Definir exibição de alinhamento vertical consistente em todos os navegadores
+ 	*/
+
+	button, input, select, textarea { 
+		font-size: 100%; 
+		margin: 0; 
+		vertical-align: baseline; 
+		*vertical-align: middle; 
+	}
+
+	/*
+ 		1. Defina a altura da linha como normal para corresponder a FF3 / 4 (defina usando! Importante na folha de estilo do UA)
+  		2. Espaçamento interno correto exibido de forma estranha no IE6 / 7
+ 	*/
+
+	button, input { 
+		line-height: normal; 
+		*overflow: visible; 
+	}
+
+
+  /* Reintroduza o espaçamento interno na 'tabela' para evitar problemas de sobreposição e espaço em branco no IE6 / 7 */
+ 
+	table button, table input { 
+		*overflow: auto; 
+	}
+
+	/*
+  		1. Exibir cursor de mão para elementos de formulário clicáveis
+  		2. Permitir estilo de elementos de formulário clicáveis no iOS
+ 	*/
+
+	button, input[type="button"], input[type="reset"], input[type="submit"] { 
+		cursor: pointer; 
+		-webkit-appearance: button; 
+	}
+
+ 	/* Dimensão e aparência consistentes da caixa */
+ 
+	input[type="checkbox"], input[type="radio"] { 
+		box-sizing: border-box; 
+	}
+	
+	input[type="search"] { 
+		-webkit-appearance: textfield; 
+		-moz-box-sizing: content-box; 
+		-webkit-box-sizing: content-box; 
+		box-sizing: content-box; 
+	}
+	
+	input[type="search"]::-webkit-search-decoration { 
+		-webkit-appearance: none; 
+	}
+
+ 
+ 	/* Remova o preenchimento interno e a borda em FF3 / 4: h5bp.com/l */
+ 
+	button::-moz-focus-inner, input::-moz-focus-inner {
+		border: 0; 
+		padding: 0; 
+	}
+
+	/* 
+  		1. Remova a barra de rolagem vertical padrão no IE6 / 7/8/9
+   		2. Permitir apenas redimensionamento vertical
+ 	*/
+
+	textarea { 
+		overflow: auto; 
+		vertical-align: top; 
+		resize: vertical; 
+	}
+
+	/* Cores para validade de formulário */
+	input:valid, textarea:valid {  }
+	
+	input:invalid, textarea:invalid { 
+		background-color: #f0dddd; 
+	}
+
+	/* Tabelas */
+	table { 
+		border-collapse: collapse; 
+		border-spacing: 0; 
+	}
+	
+	td { 
+		vertical-align: top; 
+	}
+
+	/* Fim dos estilos primários*/
+
+
+	/* Classes auxiliares não semânticas */
+
+	/* Para substituição de imagem */
+	.ir { 
+		display: block; 
+		border: 0; 
+		text-indent: -999em; 
+		overflow: hidden; 
+		background-color: transparent; 
+		background-repeat: no-repeat; 
+		text-align: left; 
+		direction: ltr; 
+	}
+	
+	.ir br { 
+		display: none; 
+	}
+
+	/* Ocultar de ambos os leitores de tela e navegadores: h5bp.com/u*/
+	.hidden { 
+		display: none !important; 
+		visibility: hidden; 
+	}
+
+	/* Oculte apenas visualmente, mas esteja disponível para leitores de tela: h5bp.com/v */
+	.visuallyhidden {
+		border: 0; 
+		clip: rect(0 0 0 0); 
+		height: 1px; 
+		margin: -1px; 
+		overflow: hidden; 
+		padding: 0; 
+		position: absolute; 
+		width: 1px; 
+	}
+
+	/* Estende a classe .visuallyhidden para permitir que o elemento seja focalizado quando navegado pelo teclado: h5bp.com/p */
+	.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+		clip: auto; 
+		height: auto; 
+		margin: 0; 
+		overflow: visible;
+		position: static; 
+		width: auto; 
+	}
+
+	/* Ocultar visualmente e de leitores de tela, mas manter layout */
+	.invisible { 
+		visibility: hidden; 
+	}
+
+	/* Contém flutuadores: h5bp.com/q */ 
+	.clearfix:before, .clearfix:after { 
+		content: ""; 
+		display: table; 
+	}
+	
+	.clearfix:after { 
+		clear: both; 
+	}
+	
+	.clearfix { 
+		zoom: 1; 
+	}
+
+	/* Estilos de impressão */
+ 
+	 @media print {
+	  * { 
+		  background: transparent !important; 
+		  color: black !important; 
+		  text-shadow: none !important; 
+		  filter:none !important; 
+		  -ms-filter: none !important; 
+	  } /* Impressões em preto mais rápido: h5bp.com/s */
+	  
+	  a, a:visited { 
+	  	text-decoration: underline; 
+	  }
+	  
+	  a[href]:after { 
+	  	content: " (" attr(href) ")"; 
+	  }
+	  
+	  abbr[title]:after { 
+	  	content: " (" attr(title) ")"; 
+	  }
+	  
+	  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { 
+	  	content: ""; 
+	  }  /*Não mostrar links para imagens ou links internos de javascript */
+	  
+	  	pre, blockquote {
+			 border: 1px solid #999; 
+			 page-break-inside: avoid; 
+		}
+	  	
+	  	thead { 
+			display: table-header-group; 
+		} /* h5bp.com/t */
+	  
+	  	tr, img { 
+			page-break-inside: avoid; 
+		}
+	  
+		img {
+			max-width: 100% !important; 
+		}
+		  
+		@page { 
+			margin: 0.5cm; 
+		}
+		  
+		p, h2, h3 { 
+			orphans: 3; 
+			widows: 3; 
+		}
+	  
+		 h2, h3 { 
+			page-break-after: avoid; 
+		 }
+	}

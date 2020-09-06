@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+img, object, embed, video {
+	max-width: 100%;
+}
+
+.ie6 img {
+	width:100%;
+}
+
+/* Layout para celular: até 480px. */
+	#Conteúdo #quiz {
+		margin-left: 3%;
+	}
+
+	#Conteúdo #quiz input {
+		border: 3px solid black;
+		border-radius: 5px;
+	}
+
+	#Conteúdo #quiz .posição {
+		margin-left: 2%;
+	}
+
+	#Conteúdo #quiz #botão {
+		width: 20%;
+		margin-left: 45%;
+		font-family: cursive;
+		text-shadow: 1px 1px 1px black;
+		box-shadow: 1px 1px 1px 1px black;
+		transition: box-shadow 0.3s ease, transform 0.3s ease;
+	}
+
+	#Conteúdo #quiz #botão:active {
+		background-color: lightblue;
+		box-shadow: 0px 0px 0px 0px black, inset 2px 2px 2px 3px black;
+		transform: translate(5%, 5%);
+	}
+	
+
+/* Layo9ut para tablet: 481px até 768px. Seu estilo é herdado do do celular. */
+
+@media only screen and (min-width: 481px) {
+	#Conteúdo #quiz {
+		margin-left: 3%;
+	}
+
+	#Conteúdo #quiz input {
+		border: 3px solid black;
+		border-radius: 5px;
+	}
+
+	#Conteúdo #quiz .posição {
+		margin-left: 2%;
+	}
+
+	#Conteúdo #quiz #botão {
+		width: 20%;
+		margin-left: 45%;
+		font-family: cursive;
+		text-shadow: 1px 1px 1px black;
+		box-shadow: 1px 1px 1px 1px black;
+		transition: box-shadow 0.3s ease, transform 0.3s ease;
+	}
+
+	#Conteúdo #quiz #botão:active {
+		background-color: lightblue;
+		box-shadow: 0px 0px 0px 0px black, inset 2px 2px 2px 3px black;
+		transform: translate(5%, 5%);
+	}
+	
+} /* Funciona somente em telas de, no mínimo, 481px.*/
+
+/* Layout para computador: 769px até 1232px. Seu estilo é herdado do do tablet e do celular. */
+
+@media only screen and (min-width: 769px) {
+	#Conteúdo #quiz {
+		margin-left: 3%;
+	}
+
+	#Conteúdo #quiz input {
+		border: 3px solid black;
+		border-radius: 5px;
+	}
+
+	#Conteúdo #quiz .posição {
+		margin-left: 2%;
+	}
+
+	#Conteúdo #quiz #botão {
+		width: 10%;
+		margin-left: 45%;
+		font-family: cursive;
+		text-shadow: 1px 1px 1px black;
+		box-shadow: 1px 1px 1px 1px black;
+		transition: box-shadow 0.3s ease, transform 0.3s ease;
+	}
+
+	#Conteúdo #quiz #botão:active {
+		background-color: lightblue;
+		box-shadow: 0px 0px 0px 0px black, inset 2px 2px 2px 3px black;
+		transform: translate(5%, 5%);
+	}
+
+
+
+} /* Funciona somente em telas de, no mínimo, 769px.*/

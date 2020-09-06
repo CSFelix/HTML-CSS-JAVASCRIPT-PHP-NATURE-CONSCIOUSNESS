@@ -1,0 +1,199 @@
+@charset "utf-8";
+
+img, object, embed, video {
+	max-width: 100%;
+}
+/* IE 6 does not support max-width so default to width 100% */
+.ie6 img {
+	width:100%;
+}
+
+/* Layout para celular: até 480px. */
+	
+	form {
+		float: right;
+		margin-right: 36%;
+		-webkit-animation: Aparecer_Formulário 2s linear;
+		-moz-animation: Aparecer_Formulário 2s linear;
+		animation: Aparecer_Formulário 2s linear;
+	} 
+	
+	/* → As animações a seguir simplesmente modificam a opacidade do formulário de 0 para 1.*/
+	
+	@-webkit-keyframes Aparecer_Formulário {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Google Chrome, Opera e Safari.*/
+	
+	@-moz-keyframes Aparecer_Formulário {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Mozila Firefox.*/
+	 
+	@keyframes Aparecer_Formulário {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Internet Explorer e versões mais recentes.*/
+	
+	/* Fim das animações ← .*/
+	
+	form input, form textarea {
+		width: 150%;
+		border: 3px solid black;
+		border-radius: 5px;
+	} 
+	
+	form input:hover, form textarea:hover {
+		cursor: text;
+	} /*Quando o cursor do mouse estiver sobre algum "input" ou "textarea", mudará para "text".*/
+	
+	form input:focus, form textarea:focus {
+		background-color: lightblue;
+	} /*Quando algum "input" ou "textarea" receber foco, terá seu fundo preenchido pela cor azul clara.*/
+	
+	form #Enviar {
+		width: 50%;
+		margin-left: 50%;
+		font-family: cursive;
+		text-shadow: 1px 1px 1px black;
+		box-shadow: 1px 1px 1px 1px black;
+		transition: box-shadow 0.3s ease, transform 0.3s ease;
+	} /* O botão de enviar recebe "text-shadow" e "box-shadow" para aprimorar o efeito 3D quando for pressionado. A explicação de tal efeito é feita no código abaixo.*/
+	
+	form #Enviar:active {
+		background-color: lightblue;
+		box-shadow: 0px 0px 0px 0px black, inset 2px 2px 2px 3px black;
+		transform: translate(5%, 5%);
+	} /* Quando o botão "submit" for pressionado, sua "box-shadow" é retirada e, 0,3 segundos depois, adicionada no local oposto. Assim, parece que o botão foi 
+	afundado, produzindo uma somba ao seu redor. Também, sua posição X e Y é transformada em 5% para a direita e baixo, produzindo o efeito de deslize. Assim,
+	ao ser pressionado, parece que o botão foi afundado e deslizado.*/
+
+/* Layout para tablet: 481px até 768px. Seu estilo é herdado do do celular.. */
+
+@media only screen and (min-width: 481px) {
+	
+	form {
+		float: right;
+		margin-right: 36%;
+		-webkit-animation: Aparecer_Formulário 2s linear;
+		-moz-animation: Aparecer_Formulário 2s linear;
+		animation: Aparecer_Formulário 2s linear;
+	} 
+	
+	/* → As animações a seguir simplesmente modificam a opacidade do formulário de 0 para 1.*/
+	
+	@-webkit-keyframes Aparecer_Formulário {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Google Chrome, Opera e Safari.*/
+	
+	@-moz-keyframes Aparecer_Formulário {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Mozila Firefox.*/
+	 
+	@keyframes Aparecer_Formulário {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Internet Explorer e versões mais recentes.*/
+	
+	/* Fim das animações ← .*/
+	
+	form input, form textarea {
+		width: 150%;
+		border: 3px solid black;
+		border-radius: 5px;
+	} 
+	
+	form input:hover {
+		cursor: text;
+	} /*Quando o cursor do mouse estiver sobre algum "input" ou "textarea", mudará para "text".*/
+	
+	form input:focus, form textarea:focus {
+		background-color: lightblue;
+	} /*Quando algum "input" ou "textarea" receber foco, terá seu fundo preenchido pela cor azul clara.*/
+	
+	form #Enviar {
+		width: 50%;
+		margin-left: 50%;
+		font-family: cursive;
+		text-shadow: 1px 1px 1px black;
+		box-shadow: 1px 1px 1px 1px black;
+		transition: box-shadow 0.3s ease, transform 0.3s ease;
+	} /* O botão de enviar recebe "text-shadow" e "box-shadow" para aprimorar o efeito 3D quando for pressionado. A explicação de tal efeito é feita no código abaixo.*/
+	
+	form #Enviar:active {
+		background-color: lightblue;
+		box-shadow: 0px 0px 0px 0px black, inset 2px 2px 2px 3px black;
+		transform: translate(5%, 5%);
+	} /* Quando o botão "submit" for pressionado, sua "box-shadow" é retirada e, 0,3 segundos depois, adicionada no local oposto. Assim, parece que o botão foi 
+	afundado, produzindo uma somba ao seu redor. Também, sua posição X e Y é transformada em 5% para a direita e baixo, produzindo o efeito de deslize. Assim,
+	ao ser pressionado, parece que o botão foi afundado e deslizado.*/
+
+} /* Funciona somente em telas de, no mínmo, 481px.*/
+
+/* Layout para computador: 769px até 1232px. Seu estilo é herdado do do table e do celular. */
+
+@media only screen and (min-width: 769px) {
+
+	form {
+		float: right;
+		margin-right: 45%;
+		
+		-webkit-animation: Aparecer_Formulário 2s linear;
+		-moz-animation: Aparecer_Formulário 2s linear;
+		animation: Aparecer_Formulário 2s linear;
+	} 
+	
+	/* → As animações a seguir simplesmente modificam a opacidade do formulário de 0 para 1.*/
+	
+	@-webkit-keyframes Aparecer_Formulário {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Google Chrome, Opera e Safari.*/
+	
+	@-moz-keyframes Aparecer_Formulário {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Mozila Firefox.*/
+	 
+	@keyframes Aparecer_Formulário {
+		from {opacity: 0;}
+		to {opacity: 1;}	
+	} /* Internet Explorer e versões mais recentes.*/
+	
+	/* Fim das animações ← .*/
+	
+	form input, form textarea {
+		width: 150%;
+		border: 3px solid black;
+		border-radius: 5px;
+	} 
+
+	form input:hover, form textarea:hover {
+		cursor: text;
+	} /*Quando o cursor do mouse estiver sobre algum "input" ou "textarea", mudará para "text".*/
+	
+	form input:focus, form textarea:focus {
+		background-color: lightblue;
+	} /*Quando algum "input" ou "textarea" receber foco, terá seu fundo preenchido pela cor azul clara.*/
+	
+	form #Enviar {
+		width: 50%;
+		margin-left: 50%;
+		font-family: cursive;
+		text-shadow: 1px 1px 1px black;
+		box-shadow: 1px 1px 1px 1px black;
+		transition: box-shadow 0.3s ease, transform 0.3s ease;
+		cursor: pointer;
+	} /* O botão de enviar recebe "text-shadow" e "box-shadow" para aprimorar o efeito 3D quando for pressionado. A explicação de tal efeito é feita no código abaixo.*/
+	
+	form #Enviar:active {
+		background-color: lightblue;
+		box-shadow: 0px 0px 0px 0px black, inset 2px 2px 2px 3px black;
+		transform: translate(5%, 5%);
+	} /* Quando o botão "submit" for pressionado, sua "box-shadow" é retirada e, 0,3 segundos depois, adicionada no local oposto. Assim, parece que o botão foi 
+	afundado, produzindo uma somba ao seu redor. Também, sua posição X e Y é transformada em 5% para a direita e baixo, produzindo o efeito de deslize. Assim,
+	ao ser pressionado, parece que o botão foi afundado e deslizado.*/
+
+} /* Funciona somente em telas de, no mínimo, 769px.*/

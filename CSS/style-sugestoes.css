@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+img, object, embed, video {
+	max-width: 100%;
+}
+
+.ie6 img {
+	width:100%;
+}
+
+/* Layout para celular: até 480px. */
+	
+	#Conteúdo ul li {
+		display: inline;
+		margin-left: 35%;
+	} /* Os itens da lista de sugestões são exibidos em linha e encontram-se a 35% de distância da margem esquerda.*/
+	
+	#Conteúdo ul #Correção_Bug {
+		margin-left: 10%;
+	} /* Contudo, acabou havendo um bug de exibição do segundo item, logo, sua posição foi definida para 10% de distância da margem esquerda.*/
+	
+	#Conteúdo img {
+		margin-left: 47%;
+	} /* Imagens das logos de cada website de sugestão.*/
+
+	#Conteúdo h3 a {
+		color: black;
+	} /* As âncoras presentes na tag h3 são coloridas de preto. Elas contêm o nome das sugestões.*/
+
+/* Layo9ut para tablet: 481px até 768px. Seu estilo é herdado do do celular. */
+
+@media only screen and (min-width: 481px) {
+	
+	#Conteúdo ul li {
+		display: inline;
+		margin-left: 35%;
+	} /* Os itens da lista de sugestões são exibidos em linha e encontram-se a 35% de distância da margem esquerda.*/
+	
+	#Conteúdo ul #Correção_Bug {
+		margin-left: 10%;
+	} /* Contudo, acabou havendo um bug de exibição do segundo item, logo, sua posição foi definida para 10% de distância da margem esquerda.*/
+	
+	#Conteúdo img {
+		margin-left: 47%;
+	} /* Imagens das logos de cada website de sugestão.*/
+
+	#Conteúdo h3 a {
+		color: black;
+	} /* As âncoras presentes na tag h3 são coloridas de preto. Elas contêm o nome das sugestões.*/
+
+} /* Funciona somente em telas de, no mínimo, 481px.*/
+
+/* Layout para computador: 769px até 1232px. Seu estilo é herdado do do tablet e do celular. */
+
+@media only screen and (min-width: 769px) {
+	
+	#Conteúdo ul li {
+		display: inline;
+		margin-left: 35%;
+	} /* Os itens da lista de sugestões são exibidos em linha e encontram-se a 35% de distância da margem esquerda.*/
+	
+	#Conteúdo ul #Correção_Bug {
+		margin-left: 10%;
+	} /* Contudo, acabou havendo um bug de exibição do segundo item, logo, sua posição foi definida para 10% de distância da margem esquerda.*/
+	
+	#Conteúdo img {
+		margin-left: 40%;
+	} /* Imagens das logos de cada website de sugestão.*/
+
+	#Conteúdo h3 a {
+		color: black;
+	} /* As âncoras presentes na tag h3 são coloridas de preto. Elas contêm o nome das sugestões.*/
+
+} /* Funciona somente em telas de, no mínimo, 769px.*/

@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+img, object, embed, video {
+	max-width: 100%;
+}
+
+.ie6 img {
+	width:100%;
+}
+
+/* Layout para celular: até 480px. */
+	
+	#Conteúdo #Parágrafo_Comum {
+		margin-left: 10%;
+	} 
+	
+	#Conteúdo svg {
+		margin-left: 32%;
+	} 
+	
+/* Layout para tablet: 481px até 768px. Seu estilo é herdado do do celular. */
+
+@media only screen and (min-width: 481px) {
+	
+	#Conteúdo #Parágrafo_Comum {
+		margin-left: 10%;
+	} 
+	
+	#Conteúdo svg {
+		margin-left: 32%;
+	} 
+	
+} /* Funciona somente em telas de, no mínimo, 481px.*/
+
+/* Layout para computador: 769px até 1232px. Seu estilo é herdado do do tablet e do celular. */
+
+@media only screen and (min-width: 769px) {
+
+	#Conteúdo #Parágrafo_Comum {
+		margin-left: 10%;
+	} 
+	
+	#Conteúdo svg {
+		margin-left: 32%;
+	} 
+	
+} /* Funciona somente em telas de, no mínimo, 769px.*/

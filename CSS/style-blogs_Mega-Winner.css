@@ -1,0 +1,142 @@
+@charset "utf-8";
+
+img, object, embed, video {
+	max-width: 100%;
+}
+
+.ie6 img {
+	width:100%;
+}
+
+/* Layout para celular: até 480px. */
+	#legenda_um {
+        margin-top: 2%;
+        margin-left: 5%;
+      }
+
+      #legenda_dois {
+        margin-top: 2%;
+        margin-left: 25%;
+      }
+
+      #legenda_três {
+        margin-top: -15%;
+        margin-left: 28%;
+      }
+
+	#Conteúdo h3 {
+		margin-left: 40%;
+		width: 20%;
+	} /* Todas as tags "h3" (títulos) pertencentes à divisória #Conteúdo encontram-se a 40% de distância da margem esquerda e possuem 20% de comprimento.*/
+	
+	#Conteúdo #Imagem_Logo_Sentinelas {
+		margin-left: 25%;
+	} /* A imagem logo da Sentinelas encontra-se a 25% de distância da margem esquerda.*/
+	
+	#Conteúdo #Imagem_Banner_Lego_FLL {
+		margin-left: 10%;
+	} /* Já o banner da FLL, 35% (25% + 10%).*/
+		
+	#Conteúdo #Imagem_Carta_MCLata {
+		margin-left: 40%;
+	} /* E a carta do MC Lata, a 40%.*/
+	
+	#Conteúdo .Imagem_Cartas_Mega_Winner {
+		margin-left: 3%;
+	} /* O baralho Mega Winner está a 3% de distância da margem esquerda.*/
+
+	#Conteúdo button {
+		width: 35%;
+		margin-left: 35%;
+	}
+
+/* Layout para tablet: 480px até 768px. Seu estilo é herdado do do celular. */
+
+@media only screen and (min-width: 481px) {
+	#legenda_um {
+          margin-top: 2%;
+          margin-left:;
+        }
+
+        #legenda_dois {
+          margin-top: 2%;
+          margin-left: 31%;
+        }
+
+        #legenda_três {
+          margin-top: 2%;
+        }
+	
+	#Conteúdo h3 {
+		margin-left: 40%;
+		width: 20%;
+	} /* Todas as tags "h3" (títulos) pertencentes à divisória #Conteúdo encontram-se a 40% de distância da margem esquerda e possuem 20% de comprimento.*/
+	
+	#Conteúdo #Imagem_Logo_Sentinelas {
+		margin-left: 25%;
+	} /* A imagem logo da Sentinelas encontra-se a 25% de distância da margem esquerda.*/
+	
+	#Conteúdo #Imagem_Banner_Lego_FLL {
+		margin-left: 10%;
+	} /* Já o banner da FLL, 35% (25% + 10%).*/
+		
+	#Conteúdo #Imagem_Carta_MCLata {
+		margin-left: 40%;
+	} /* E a carta do MC Lata, a 40%.*/
+	
+	#Conteúdo .Imagem_Cartas_Mega_Winner {
+		margin-left: 3%;
+	} /* O baralho Mega Winner está a 3% de distância da margem esquerda.*/
+
+	#Conteúdo button {
+		width: 35%;
+		margin-left: 35%;
+	}
+
+} /* Funciona somente em telas com comprimento de, no mínimo, 481px.*/
+
+/* Layout para computador: 769px até 1232px. Seu estilo é herdado do do tablet e do celular. */
+
+@media only screen and (min-width: 769px) {
+	 #legenda_um {
+          margin-top: 2%;
+          margin-left: 23%;
+        }
+
+        #legenda_dois {
+          margin-top: 2%;
+          margin-left: 37.5%;
+        }
+
+        #legenda_três {
+          margin-top: 2%;
+          margin-left: 38%;
+        }
+	
+	#Conteúdo h3 {
+		margin-left: 40%;
+		width: 20%;
+	} /* Todas as tags "h3" (títulos) pertencentes à divisória #Conteúdo encontram-se a 40% de distância da margem esquerda e possuem 20% de comprimento.*/
+	
+	#Conteúdo #Imagem_Logo_Sentinelas {
+		margin-left: 25%;
+	} /* A imagem logo da Sentinelas encontra-se a 25% de distância da margem esquerda.*/
+	
+	#Conteúdo #Imagem_Banner_Lego_FLL {
+		margin-left: 10%;
+	} /* Já o banner da FLL, 35% (25% + 10%).*/
+		
+	#Conteúdo #Imagem_Carta_MCLata {
+		margin-left: 40%;
+	} /* E a carta do MC Lata, a 40%.*/
+	
+	#Conteúdo .Imagem_Cartas_Mega_Winner {
+		margin-left: 3%;
+	} /* O baralho Mega Winner está a 3% de distância da margem esquerda.*/
+
+	#Conteúdo button {
+		width: 14%;
+		margin-left: 41%;
+	}
+
+} /* Funciona somente em telas com comprimento de, no mínimo, 769px.*/

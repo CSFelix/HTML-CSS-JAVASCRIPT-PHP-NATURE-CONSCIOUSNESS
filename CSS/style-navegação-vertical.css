@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+img, object, embed, video {
+	max-width: 100%;
+}
+/* IE 6 does not support max-width so default to width 100% */
+.ie6 img {
+	width:100%;
+}
+
+/* Layout para celular: até 480px. */
+	 
+	#Navegação_Vertical {
+		display: none;
+	}
+
+
+	
+/* Layout para tablet: 481px até 768px. Seu estilo é herdado do do celular.. */
+
+@media only screen and (min-width: 481px) {
+	
+	
+} /* Funciona somente em telas de, no mínmo, 481px.*/
+
+/* Layout para computador: 769px até 1232px. Seu estilo é herdado do do table e do celular. */
+
+@media only screen and (min-width: 769px) {
+
+	#Navegação_Vertical {
+		position: absolute;
+		width: 15%;
+		background-color: #fffacd;
+		margin-left: -5%;
+		display: inline;
+	}
+
+	#Navegação_Vertical p {
+		color: #444;
+		font-size: 10pt;
+		margin-left: 10%;
+	}
+
+	#Navegação_Vertical #subir {
+		margin-top: -1%;
+	}
+
+	#Navegação_Vertical ul {
+		list-style: none;
+		margin-left: -10%;
+		font-size: 10pt;
+	}
+
+	#Navegação_Vertical ul li a {
+		color: blue;
+		text-decoration: none;
+	}
+
+	#Navegação_Vertical ul li a:hover {
+		color: dodgerblue;
+		text-decoration: underline;
+	}
+
+	#Navegação_Vertical #Está_Aqui {
+		color: #338;
+	}
+
+	#Navegação_Vertical li #Está_Aqui:hover {
+		color: dodgerblue;
+	}
+
+} /* Funciona somente em telas de, no mínimo, 769px.*/

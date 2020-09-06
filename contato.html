@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html>
+
+	<head>
+    
+		<meta charset="utf-8" />
+        <meta name="description" contet="Venha aprender sobre a reciclagem de maneira fácil e divertida. Disponibilizamos blogs e projetos (javascript e download docx) diversos. Toda semana um conteúdo novo." />
+        <meta name="author" content="Gabriel Felix dos Santos, Matheus Gustavo de Oliveira Santos e Matheus Augusto Lisboa Maruca" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+		<title>CONSCIÊNCIA DA NATUREZA</title>
+        
+		<link href="CSS/boilerplate.css" rel="stylesheet" type="text/css" /> <!-- CSS para responsividade -->
+		<link href="CSS/style-global.css" rel="stylesheet" type="text/css" /> <!-- CSS global -->
+    <link href="CSS/style-contato.css" rel="stylesheet" type="text/css" /> <!-- CSS específico da página -->
+		
+		<script src="JAVA/respond.min.js"></script> <!-- JAVA para responsividade -->
+      
+	</head>
+
+	<body>
+
+		<div class="gridContainer clearfix"> <!-- → DIVISÓRIA RESPONSIVA 1 -->
+  			<div id="LayoutDiv1"> <!-- → DIVISÓRIA RESPONSIVA 2 -->
+            
+            	<div id="Nome_do_Website"> <!-- → APRESENTAÇÃO -->
+                	<h1>Consciência da Natureza</h1>
+                    <h5><em>"Seus atos de hoje serão seu futuro de amanhã"</em></h5>
+                    
+                   <ul id="Menu">
+                        <li><a href="index.html">INÍCIO</a></li> <!-- A id "Está_Aqui" serve para identificar a página que está aberta. No css "style-global", a cor desse item é diferente dos demais, assim, o usuário saberá em qual página ele está. -->
+                        <li><a href="blogs.html">BLOGS</a></li>
+                        <li><a href="projetos.html">PROJETOS</a></li>
+                        <li><a href="sugestoes.html">SUGESTÕES</a></li>
+                        <li><a href="contato.html" id="Está_Aqui">CONTATO</a></li>
+                   </ul>
+                    
+                </div> <!-- APRESENTAÇÃO ← -->
+
+                <div id="Conteúdo"> <!-- → CONTEÚDO -->
+                	<br /> <br />
+                    <hr width="100%" />
+                    <br />
+                
+               	  <p>Para entrar em contato conosco, preencha o formulário abaixo. Responderemos em breve via e-mail.</p> 
+                  <p>OBS.: caso seu navegador seja o Mozila Firefox, poderá ocorrer um pequeno problema de exbição do formulário, mas não se preocupe, estamos trabalhando para solucionar esse problema.</p>
+                  
+                  <br /> <br />
+                  
+                  <form method="POST" action="contato-enviado.html"> <!-- → FORMULÁRIO DE CONTATO -->
+                  	<input type="text" name="Nome_Completo" placeholder="Nome completo" maxlength="50" required /> <br /> <br />
+                    <input type="email" name="Email" placeholder="E-mail de contato" required /> <br /> <br />
+                    <input type="date" name="Data" required /> <br /> <br />
+                    <input type="list" name="Assunto" list="Opções" placeholder="Assunto" required /> <br /> <br />
+                    	<datalist id="Opções">
+                        	<option>BUGS</option>
+                            <option>DÚVIDAS</option>
+                            <option>SUGESTÕES</option>
+                            <option>OUTRO (especifique na mensagem)</option>
+                        </datalist>
+                    <textarea name="Mensagem" placeholder="Mensagem (até 800 caracteres)" rows="5" required></textarea> <br /> <br />
+                    <input id="Enviar" name="botão_enviar" type="submit" onclick="Mensagem_Enviada()" value="Enviar" /> <br /> <br /> <br /> <br />
+                  </form> <!-- FORMULÁRIO DE CONTATO ← -->
+ 	
+                   
+                  <hr width="100%" />
+                  <br /> <br />
+                </div> <!-- CONTEÚDO ← -->
+                
+                <div id="Créditos">COPYRIGHT<sup>&copy</sup> 2018 -- UNIP / ARAÇATUBA</div> <!-- CRÉDITOS -->
+  				
+   			</div> <!-- DIVISÓRIA RESPONSIVA 2 ← -->
+            
+		</div> <!-- DIVISÓRIA RESPONSIVA 1 ← -->
+        
+	</body>
+    
+</html>
