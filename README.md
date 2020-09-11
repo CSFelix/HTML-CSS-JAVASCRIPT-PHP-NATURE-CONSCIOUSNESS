@@ -28,3 +28,12 @@
 * Into *Documentos* folder there are **Mega_Winner_Regras.docx** and **Tabela_de_Decomposição.docx**. The first is the rules of a card game called *Mega Winner* made by me and my Lego Robotic Team, and the second, a table about the Recyclable Waste' decomposition;
 
 * If you wanna find and play Mega Winner, the cards are storaged in *Imagens\Blogs* directory. The cards are *Folha_1.jpg, Folha_2.jpg, Folha_3.jpg and Folha_4.jpg* files.
+
+----
+### `✉️ Contact ✉️`
+
+> **Email:** `gabrielfelix08@outlook.com`
+
+> **Linkedin:** `---`
+
+> **Instagram:** `---`
