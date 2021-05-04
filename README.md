@@ -30,7 +30,7 @@
 * If you wanna find and play Mega Winner, the cards are storaged in *Imagens\Blogs* directory. The cards are *Folha_1.jpg, Folha_2.jpg, Folha_3.jpg and Folha_4.jpg* files.
 
 ----
-#### 📫 Reach Me 📫
+### `📫 Reach Me 📫`
 
 > **Email:** **[csfelix08@gmail.com](mailto:csfelix08@gmail.com?)**
 
